@@ -18,28 +18,48 @@ const audience = [
   {
     title: "Macie specjalistów, ale brakuje osoby spinającej całość",
     text: "SEO, Ads, social, content i analityka działają osobno. Potrzebny jest jeden proces i jasne priorytety.",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z" />
+      </svg>
+    ),
   },
   {
     title: "Zarząd chce widzieć liczby, nie listę zadań",
     text: "Raportowanie ma wspierać decyzje biznesowe, a nie wymagać klikania po panelach reklamowych.",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+      </svg>
+    ),
   },
   {
     title: "Marketing robi dużo, ale nie wiadomo, co naprawdę działa",
     text: "Piotr porządkuje KPI, budżety, kanały i odpowiedzialność za wyniki.",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+      </svg>
+    ),
   },
   {
     title: "Nie chcecie zatrudniać managera na etat",
     text: "Otrzymujecie seniorowe wsparcie menedżerskie bez kosztu i ryzyka pełnego etatu.",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+      </svg>
+    ),
   },
 ];
 
 const ownerItems = [
-  "audyt i diagnoza",
-  "strategia digital",
-  "roadmapa 90 dni",
-  "KPI i priorytety",
-  "nadzór nad specjalistami",
-  "raportowanie menedżerskie",
+  { text: "audyt i diagnoza", icon: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" },
+  { text: "strategia digital", icon: "M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" },
+  { text: "roadmapa 90 dni", icon: "M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" },
+  { text: "KPI i priorytety", icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" },
+  { text: "nadzór nad specjalistami", icon: "M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" },
+  { text: "raportowanie menedżerskie", icon: "M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" },
 ];
 
 const specialistItems = [
@@ -49,6 +69,14 @@ const specialistItems = [
   "video",
   "grafika",
   "marketing automation",
+];
+
+const processIcons = [
+  "M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155",
+  "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z",
+  "M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z",
+  "M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495",
+  "M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z",
 ];
 
 const process = [
@@ -219,14 +247,26 @@ const skills = [
   "Reporting",
 ];
 
+function DotsGrid({ className }: { className?: string }) {
+  return (
+    <svg className={className} width="120" height="120" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      {Array.from({ length: 36 }, (_, i) => (
+        <circle key={i} cx={10 + (i % 6) * 20} cy={10 + Math.floor(i / 6) * 20} r="1.5" fill="currentColor" />
+      ))}
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <>
       <Nav />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 px-6 overflow-hidden">
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-accent/[0.03] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+        <DotsGrid className="absolute top-32 right-12 text-line/60 hidden lg:block" />
+        <div className="max-w-6xl mx-auto relative">
           <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-3">
               <p className="mono text-sm tracking-widest uppercase text-accent mb-4">
@@ -289,15 +329,20 @@ export default function Home() {
             </div>
             <div className="lg:col-span-2 flex justify-center lg:justify-end">
               <div className="relative">
-                <div className="absolute -inset-4 bg-accent/5 rounded-3xl -rotate-3" />
+                <div className="absolute -inset-6 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent rounded-3xl -rotate-3" />
+                <div className="absolute -bottom-3 -right-3 w-24 h-24 border-2 border-accent/20 rounded-2xl" />
                 <Image
                   src="/piotr-sobczyk.jpg"
                   alt="Piotr Sobczyk"
                   width={300}
                   height={300}
-                  className="relative rounded-2xl grayscale w-64 h-64 md:w-72 md:h-72 object-cover"
+                  className="relative rounded-2xl grayscale w-64 h-64 md:w-72 md:h-72 object-cover shadow-2xl shadow-dark/10"
                   priority
                 />
+                <div className="absolute -top-4 -left-4 bg-white rounded-xl shadow-lg shadow-dark/10 px-4 py-2.5 flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-xs font-medium text-dark">Dostępny</span>
+                </div>
               </div>
             </div>
           </div>
@@ -354,8 +399,11 @@ export default function Home() {
             {audience.map((item) => (
               <div
                 key={item.title}
-                className="p-6 md:p-8 rounded-2xl border border-line bg-white hover:shadow-lg hover:shadow-dark/5 transition-all duration-300"
+                className="group p-6 md:p-8 rounded-2xl border border-line bg-white hover:shadow-lg hover:shadow-dark/5 transition-all duration-300"
               >
+                <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                  {item.icon}
+                </div>
                 <h3 className="text-lg font-semibold text-dark mb-3">
                   {item.title}
                 </h3>
@@ -367,8 +415,9 @@ export default function Home() {
       </section>
 
       {/* Scope */}
-      <section id="scope" className="py-20 md:py-28 px-6 bg-surface">
-        <div className="max-w-6xl mx-auto">
+      <section id="scope" className="relative py-20 md:py-28 px-6 bg-surface overflow-hidden">
+        <DotsGrid className="absolute bottom-8 left-8 text-line/40 hidden lg:block" />
+        <div className="max-w-6xl mx-auto relative">
           <div className="text-center mb-14">
             <p className="mono text-sm tracking-widest uppercase text-accent mb-3">
               Zakres
@@ -379,26 +428,38 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-8 rounded-2xl bg-white border border-line">
+              <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-5">
+                <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold text-dark mb-6">
                 Za co odpowiadam
               </h3>
               <ul className="space-y-4">
                 {ownerItems.map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
-                    <span className="text-dark">{item}</span>
+                  <li key={item.text} className="flex items-center gap-3">
+                    <svg className="w-4 h-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                    </svg>
+                    <span className="text-dark">{item.text}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="p-8 rounded-2xl bg-white border border-line">
+              <div className="w-10 h-10 rounded-lg bg-line/60 flex items-center justify-center mb-5">
+                <svg className="w-5 h-5 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.1-3.06A2.25 2.25 0 014.93 9.6l5.1-3.06a2.25 2.25 0 012.34 0l5.1 3.06a2.25 2.25 0 011.39 2.51l-5.1 3.06a2.25 2.25 0 01-2.34 0z" />
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold text-dark mb-6">
                 Co wykonują specjaliści
               </h3>
               <ul className="space-y-4">
                 {specialistItems.map((item) => (
                   <li key={item} className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-line shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-subtle shrink-0" />
                     <span className="text-muted">{item}</span>
                   </li>
                 ))}
@@ -425,12 +486,17 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-5 gap-6">
             {process.map((item, i) => (
-              <div key={item.step} className="relative">
+              <div key={item.step} className="relative group">
                 {i < process.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-full w-6 h-px bg-line -translate-x-3" />
+                  <div className="hidden md:block absolute top-10 left-full w-6 h-px bg-line -translate-x-3" />
                 )}
-                <div className="p-6 rounded-2xl border border-line bg-white h-full">
-                  <span className="mono text-2xl font-bold text-accent/20 block mb-3">
+                <div className="p-6 rounded-2xl border border-line bg-white h-full hover:shadow-lg hover:shadow-dark/5 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                    <svg className="w-5 h-5 text-accent group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d={processIcons[i]} />
+                    </svg>
+                  </div>
+                  <span className="mono text-xs font-bold text-accent/40 block mb-2">
                     {item.step}
                   </span>
                   <h3 className="text-base font-semibold text-dark mb-2">
@@ -443,6 +509,29 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Mid-page CTA */}
+      <section className="py-16 md:py-20 px-6 bg-dark relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-transparent to-accent/10 pointer-events-none" />
+        <DotsGrid className="absolute top-4 right-8 text-white/10 hidden lg:block" />
+        <div className="max-w-3xl mx-auto text-center relative">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Porozmawiajmy o tym, jak uporządkować Twój marketing
+          </h2>
+          <p className="text-subtle text-lg mb-8">
+            Bezpłatna konsultacja, konkretne wnioski, zero zobowiązań.
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 bg-white text-dark font-medium px-8 py-4 rounded-xl hover:bg-accent-light transition-colors text-base"
+          >
+            Umów konsultację
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
         </div>
       </section>
 
@@ -545,37 +634,50 @@ export default function Home() {
                 href={pub.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-6 md:p-8 rounded-2xl border border-line bg-white hover:shadow-lg hover:shadow-dark/5 transition-all duration-300 block"
+                className="group p-6 md:p-8 rounded-2xl border border-line bg-white hover:shadow-lg hover:shadow-dark/5 transition-all duration-300 flex gap-5"
               >
-                <div className="flex items-center gap-2 mb-3">
-                  <p className="mono text-xs tracking-widest uppercase text-subtle">
-                    {pub.source}
-                  </p>
-                  {pub.type === "podcast" && (
-                    <span className="text-xs bg-accent/10 text-accent px-2 py-0.5 rounded-full font-medium">
-                      Podcast
-                    </span>
+                <div className={`w-12 h-12 rounded-xl shrink-0 flex items-center justify-center ${pub.type === "podcast" ? "bg-emerald-50 text-emerald-600" : "bg-accent/10 text-accent"}`}>
+                  {pub.type === "podcast" ? (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+                    </svg>
+                  ) : (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                    </svg>
                   )}
                 </div>
-                <h3 className="text-lg font-semibold text-dark group-hover:text-accent transition-colors mb-3">
-                  {pub.title}
-                </h3>
-                <span className="text-sm text-accent font-medium inline-flex items-center gap-1">
-                  {pub.type === "podcast" ? "Słuchaj" : "Czytaj"}
-                  <svg
-                    className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-2">
+                    <p className="mono text-xs tracking-widest uppercase text-subtle">
+                      {pub.source}
+                    </p>
+                    {pub.type === "podcast" && (
+                      <span className="text-xs bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full font-medium">
+                        Podcast
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-lg font-semibold text-dark group-hover:text-accent transition-colors mb-2">
+                    {pub.title}
+                  </h3>
+                  <span className="text-sm text-accent font-medium inline-flex items-center gap-1">
+                    {pub.type === "podcast" ? "Słuchaj" : "Czytaj"}
+                    <svg
+                      className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </a>
             ))}
           </div>
@@ -652,8 +754,9 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-20 md:py-28 px-6 bg-dark">
-        <div className="max-w-6xl mx-auto">
+      <section id="contact" className="py-20 md:py-28 px-6 bg-dark relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="max-w-6xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             <div>
               <p className="mono text-sm tracking-widest uppercase text-accent mb-3">
