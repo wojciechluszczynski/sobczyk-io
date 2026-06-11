@@ -285,12 +285,12 @@ export default function Home() {
                   priority
                 />
                 {/* Floating card: role */}
-                <div className="absolute -top-4 -right-4 sm:-right-8 bg-white/10 backdrop-blur-md rounded-xl px-4 py-2.5 border border-white/10 shadow-lg">
+                <div className="absolute -top-4 -right-4 sm:-right-8 bg-dark/80 backdrop-blur-xl rounded-xl px-4 py-2.5 border border-white/10 shadow-lg">
                   <p className="text-[10px] text-white/40 uppercase tracking-wider">Rola</p>
                   <p className="text-sm font-semibold text-white">Head of Digital</p>
                 </div>
                 {/* Floating card: skills */}
-                <div className="absolute -bottom-5 -left-4 sm:-left-10 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/10 shadow-lg">
+                <div className="absolute -bottom-5 -left-4 sm:-left-10 bg-dark/80 backdrop-blur-xl rounded-xl p-4 border border-white/10 shadow-lg">
                   <div className="grid grid-cols-2 gap-x-5 gap-y-1.5">
                     {["PPC", "SEO", "Analytics", "Strategy"].map((s) => (
                       <div key={s} className="flex items-center gap-2">
@@ -301,7 +301,7 @@ export default function Home() {
                   </div>
                 </div>
                 {/* Floating metric */}
-                <div className="absolute top-1/2 -right-3 sm:-right-14 -translate-y-1/2 bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 hidden sm:block">
+                <div className="absolute top-1/2 -right-3 sm:-right-14 -translate-y-1/2 bg-dark/80 backdrop-blur-xl rounded-lg px-3 py-2 border border-white/10 hidden sm:block">
                   <div className="flex items-center gap-2">
                     <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
@@ -738,7 +738,7 @@ export default function Home() {
       <footer className="py-8 px-5 sm:px-6 bg-dark border-t border-white/5">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/30">
-            &copy; 2025 Piotr Sobczyk
+            &copy; 2026 Piotr Sobczyk
           </p>
           <div className="flex items-center gap-6">
             <a href="mailto:piotr@sobczyk.io" className="text-xs text-white/30 hover:text-white/60 transition-colors">
