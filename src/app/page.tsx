@@ -218,9 +218,14 @@ export default function Home() {
       <Nav />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 px-5 sm:px-6 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-accent/[0.04] rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/[0.02] rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+      <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 px-5 sm:px-6 overflow-hidden grain">
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-accent/[0.06] rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none float-slow" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-200/[0.08] rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none float-slower" />
+        <div className="absolute top-24 right-8 w-[300px] h-[300px] dots-pattern opacity-30 pointer-events-none hidden lg:block" />
+        <svg className="absolute bottom-12 left-12 text-accent/[0.06] hidden lg:block" width="120" height="120" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <rect x="10" y="10" width="100" height="100" rx="20" stroke="currentColor" strokeWidth="1" />
+          <rect x="30" y="30" width="60" height="60" rx="12" stroke="currentColor" strokeWidth="1" />
+        </svg>
         <div className="max-w-6xl mx-auto relative">
           <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-3">
@@ -299,16 +304,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experience bar */}
-      <section className="py-10 bg-surface border-y border-line/40">
-        <div className="max-w-6xl mx-auto px-5 sm:px-6">
-          <p className="mono text-[10px] tracking-[0.2em] uppercase text-subtle text-center mb-5">
-            Doświadczenie z firm i projektów
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2.5">
-            {experience.map((name) => (
-              <span key={name} className="text-sm font-medium text-muted/70 hover:text-dark transition-colors whitespace-nowrap">
+      {/* Experience bar — marquee */}
+      <section className="py-10 bg-surface border-y border-line/40 overflow-hidden">
+        <p className="mono text-[10px] tracking-[0.2em] uppercase text-subtle text-center mb-5 px-5">
+          Doświadczenie z firm i projektów
+        </p>
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-surface to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-surface to-transparent z-10 pointer-events-none" />
+          <div className="flex animate-marquee">
+            {[...experience, ...experience].map((name, i) => (
+              <span key={`${name}-${i}`} className="text-sm font-medium text-muted/60 whitespace-nowrap px-6 flex items-center gap-6">
                 {name}
+                <span className="w-1 h-1 rounded-full bg-line" />
               </span>
             ))}
           </div>
@@ -332,8 +340,14 @@ export default function Home() {
 
       {/* Audience */}
       <ScrollReveal>
-        <section id="audience" className="py-20 md:py-28 px-5 sm:px-6">
-          <div className="max-w-6xl mx-auto">
+        <section id="audience" className="relative py-20 md:py-28 px-5 sm:px-6 overflow-hidden">
+          <div className="absolute top-10 right-0 w-[500px] h-[500px] bg-accent/[0.04] rounded-full blur-3xl pointer-events-none float-slower" />
+          <svg className="absolute top-16 left-8 text-accent/[0.06] hidden lg:block" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+            <circle cx="40" cy="40" r="35" stroke="currentColor" strokeWidth="1" />
+            <circle cx="40" cy="40" r="18" stroke="currentColor" strokeWidth="1" />
+          </svg>
+          <div className="absolute bottom-0 right-12 w-[200px] h-[200px] dots-pattern opacity-20 pointer-events-none hidden lg:block" />
+          <div className="max-w-6xl mx-auto relative">
             <div className="text-center mb-14">
               <p className="mono text-xs tracking-[0.2em] uppercase text-accent mb-3">Dla kogo</p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-dark">
@@ -362,7 +376,13 @@ export default function Home() {
 
       {/* Scope */}
       <ScrollReveal>
-        <section id="scope" className="relative py-20 md:py-28 px-5 sm:px-6 bg-surface">
+        <section id="scope" className="relative py-20 md:py-28 px-5 sm:px-6 bg-surface overflow-hidden grain">
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-100/[0.15] rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none float-slow" />
+          <svg className="absolute top-12 right-10 text-accent/[0.06] hidden lg:block" width="100" height="100" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <line x1="0" y1="50" x2="100" y2="50" stroke="currentColor" strokeWidth="1" />
+            <line x1="50" y1="0" x2="50" y2="100" stroke="currentColor" strokeWidth="1" />
+            <rect x="25" y="25" width="50" height="50" stroke="currentColor" strokeWidth="1" rx="4" />
+          </svg>
           <div className="max-w-6xl mx-auto relative">
             <div className="text-center mb-14">
               <p className="mono text-xs tracking-[0.2em] uppercase text-accent mb-3">Zakres</p>
@@ -419,8 +439,14 @@ export default function Home() {
 
       {/* Process */}
       <ScrollReveal>
-        <section id="process" className="py-20 md:py-28 px-5 sm:px-6">
-          <div className="max-w-6xl mx-auto">
+        <section id="process" className="relative py-20 md:py-28 px-5 sm:px-6 overflow-hidden">
+          <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-accent/[0.03] rounded-full blur-3xl -translate-x-1/3 pointer-events-none float-slow" />
+          <div className="absolute bottom-10 right-0 w-[350px] h-[350px] bg-violet-200/[0.06] rounded-full blur-3xl translate-x-1/4 pointer-events-none float-slower" />
+          <div className="absolute top-20 right-16 w-[180px] h-[180px] dots-pattern opacity-20 pointer-events-none hidden lg:block" />
+          <svg className="absolute bottom-16 left-10 text-accent/[0.05] hidden lg:block" width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+            <polygon points="30,5 55,50 5,50" stroke="currentColor" strokeWidth="1" fill="none" />
+          </svg>
+          <div className="max-w-6xl mx-auto relative">
             <div className="text-center mb-14">
               <p className="mono text-xs tracking-[0.2em] uppercase text-accent mb-3">Proces</p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-dark">
@@ -451,8 +477,10 @@ export default function Home() {
       </ScrollReveal>
 
       {/* Mid-page CTA */}
-      <section className="py-16 md:py-20 px-5 sm:px-6 bg-dark relative overflow-hidden">
+      <section className="py-16 md:py-20 px-5 sm:px-6 bg-dark relative overflow-hidden grain">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/15 via-transparent to-accent/5 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none float-slow" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-indigo-400/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3 pointer-events-none float-slower" />
         <div className="max-w-3xl mx-auto text-center relative">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Porozmawiajmy o tym, co da się poprawić
@@ -474,8 +502,15 @@ export default function Home() {
 
       {/* Pricing */}
       <ScrollReveal>
-        <section id="pricing" className="py-20 md:py-28 px-5 sm:px-6 bg-warm">
-          <div className="max-w-6xl mx-auto">
+        <section id="pricing" className="relative py-20 md:py-28 px-5 sm:px-6 bg-warm overflow-hidden grain">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-100/[0.2] rounded-full blur-3xl -translate-y-1/4 translate-x-1/4 pointer-events-none float-slow" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/[0.03] rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none float-slower" />
+          <svg className="absolute bottom-20 right-8 text-accent/[0.06] hidden lg:block" width="90" height="90" viewBox="0 0 90 90" fill="none" aria-hidden="true">
+            <rect x="5" y="5" width="80" height="80" rx="16" stroke="currentColor" strokeWidth="1" />
+            <rect x="20" y="20" width="50" height="50" rx="10" stroke="currentColor" strokeWidth="1" />
+            <rect x="35" y="35" width="20" height="20" rx="4" stroke="currentColor" strokeWidth="1" />
+          </svg>
+          <div className="max-w-6xl mx-auto relative">
             <div className="text-center mb-14">
               <p className="mono text-xs tracking-[0.2em] uppercase text-accent mb-3">Cennik</p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-dark">
@@ -538,8 +573,13 @@ export default function Home() {
 
       {/* Publications */}
       <ScrollReveal>
-        <section id="publications" className="py-20 md:py-28 px-5 sm:px-6">
-          <div className="max-w-6xl mx-auto">
+        <section id="publications" className="relative py-20 md:py-28 px-5 sm:px-6 overflow-hidden">
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent/[0.03] rounded-full blur-3xl -translate-y-1/3 -translate-x-1/4 pointer-events-none float-slower" />
+          <div className="absolute top-16 right-12 w-[160px] h-[160px] dots-pattern opacity-15 pointer-events-none hidden lg:block" />
+          <svg className="absolute bottom-12 left-8 text-accent/[0.05] hidden lg:block" width="70" height="70" viewBox="0 0 70 70" fill="none" aria-hidden="true">
+            <circle cx="35" cy="35" r="30" stroke="currentColor" strokeWidth="1" strokeDasharray="4 6" />
+          </svg>
+          <div className="max-w-6xl mx-auto relative">
             <div className="text-center mb-14">
               <p className="mono text-xs tracking-[0.2em] uppercase text-accent mb-3">Publikacje</p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-dark">
@@ -599,8 +639,13 @@ export default function Home() {
 
       {/* FAQ */}
       <ScrollReveal>
-        <section id="faq" className="py-20 md:py-28 px-5 sm:px-6 bg-surface">
-          <div className="max-w-3xl mx-auto">
+        <section id="faq" className="relative py-20 md:py-28 px-5 sm:px-6 bg-surface overflow-hidden">
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-100/[0.1] rounded-full blur-3xl translate-y-1/3 translate-x-1/4 pointer-events-none float-slow" />
+          <svg className="absolute top-10 left-6 text-accent/[0.05] hidden lg:block" width="50" height="50" viewBox="0 0 50 50" fill="none" aria-hidden="true">
+            <line x1="0" y1="25" x2="50" y2="25" stroke="currentColor" strokeWidth="1" />
+            <line x1="25" y1="0" x2="25" y2="50" stroke="currentColor" strokeWidth="1" />
+          </svg>
+          <div className="max-w-3xl mx-auto relative">
             <div className="text-center mb-14">
               <p className="mono text-xs tracking-[0.2em] uppercase text-accent mb-3">FAQ</p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-dark">
@@ -629,8 +674,13 @@ export default function Home() {
       </ScrollReveal>
 
       {/* Contact */}
-      <section id="contact" className="py-20 md:py-28 px-5 sm:px-6 bg-dark relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <section id="contact" className="py-20 md:py-28 px-5 sm:px-6 bg-dark relative overflow-hidden grain">
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none float-slow" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-indigo-400/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none float-slower" />
+        <svg className="absolute bottom-8 right-8 text-white/[0.03] hidden lg:block" width="120" height="120" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <rect x="10" y="10" width="100" height="100" rx="20" stroke="currentColor" strokeWidth="1" />
+          <rect x="30" y="30" width="60" height="60" rx="12" stroke="currentColor" strokeWidth="1" />
+        </svg>
         <div className="max-w-6xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             <div>
