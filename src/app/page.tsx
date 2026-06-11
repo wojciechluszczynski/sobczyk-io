@@ -229,12 +229,8 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative">
           <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-3">
-              <div className="inline-flex items-center gap-2 bg-accent/5 border border-accent/10 rounded-full px-4 py-1.5 mb-6">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="mono text-xs tracking-wide text-accent">Przyjmuję nowych klientów</span>
-              </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-dark leading-[1.1] mb-6">
-                Jeden człowiek od całego<br className="hidden sm:block" /> marketingu digital
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-dark leading-[1.1] mb-6 text-balance">
+                Jeden człowiek od całego marketingu digital
                 <span className="text-accent">.</span>
               </h1>
               <p className="text-lg md:text-xl text-muted leading-relaxed mb-8 max-w-2xl">
