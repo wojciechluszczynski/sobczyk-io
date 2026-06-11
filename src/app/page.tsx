@@ -218,80 +218,95 @@ export default function Home() {
       <Nav />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 px-5 sm:px-6 overflow-hidden grain">
-        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-accent/[0.06] rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none float-slow" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-200/[0.08] rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none float-slower" />
-        <div className="absolute top-24 right-8 w-[300px] h-[300px] dots-pattern opacity-30 pointer-events-none hidden lg:block" />
-        <svg className="absolute bottom-12 left-12 text-accent/[0.06] hidden lg:block" width="120" height="120" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-          <rect x="10" y="10" width="100" height="100" rx="20" stroke="currentColor" strokeWidth="1" />
-          <rect x="30" y="30" width="60" height="60" rx="12" stroke="currentColor" strokeWidth="1" />
-        </svg>
+      <section className="relative pt-32 pb-24 md:pt-44 md:pb-36 px-5 sm:px-6 overflow-hidden bg-dark grain">
+        {/* Gradient mesh */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-gradient-to-b from-accent/20 via-accent/5 to-transparent rounded-full blur-3xl pointer-events-none float-slow" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-violet-500/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4 pointer-events-none float-slower" />
+        <div className="absolute top-20 left-8 w-[250px] h-[250px] dots-pattern opacity-10 pointer-events-none hidden lg:block" />
+        {/* Grid lines */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '80px 80px'}} />
+
         <div className="max-w-6xl mx-auto relative">
-          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-3">
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-dark leading-[1.1] mb-6 text-balance">
-                Jeden człowiek od całego marketingu digital
-                <span className="text-accent">.</span>
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div className="lg:col-span-7">
+              <p className="mono text-xs tracking-[0.2em] uppercase text-accent mb-5">Piotr Sobczyk / Digital Manager</p>
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.75rem] font-bold tracking-tight text-white leading-[1.08] mb-6">
+                Twój marketing ma specjalistów.{" "}<br className="hidden md:block" />
+                Brakuje mu szefa<span className="text-accent">.</span>
               </h1>
-              <p className="text-lg md:text-xl text-muted leading-relaxed mb-8 max-w-2xl">
-                Układam strategię, nadzoruję działania, łączę specjalistów w spójny proces.
-                Ty dostajesz wyniki i spokój. Bez etatu w zespole.
+              <p className="text-lg md:text-xl text-white/50 leading-relaxed mb-10 max-w-xl">
+                SEOwiec robi swoje, Adsowiec swoje, social swoje. Nikt tego nie spina, nie mierzy i nie rozlicza. Wchodzę jako zewnętrzny Head of Digital i zamieniam chaos w proces.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <div className="flex flex-col sm:flex-row gap-4 mb-14">
                 <a
                   href="#contact"
                   className="inline-flex items-center justify-center gap-2 bg-accent text-white font-medium px-7 py-3.5 rounded-xl hover:bg-accent-dark transition-all hover:shadow-lg hover:shadow-accent/25 text-base"
                 >
-                  Umów bezpłatną rozmowę
+                  Porozmawiajmy
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </a>
                 <a
                   href="#process"
-                  className="inline-flex items-center justify-center border border-line text-dark font-medium px-7 py-3.5 rounded-xl hover:bg-surface transition-colors text-base"
+                  className="inline-flex items-center justify-center border border-white/15 text-white/70 font-medium px-7 py-3.5 rounded-xl hover:bg-white/5 hover:text-white transition-all text-base"
                 >
                   Jak to działa?
                 </a>
               </div>
 
               {/* KPI strip */}
-              <div className="flex flex-wrap gap-8">
+              <div className="flex flex-wrap gap-10">
                 {[
                   { num: "10+", label: "lat w digitalu" },
                   { num: "50+", label: "projektów" },
-                  { num: "4", label: "obszary ekspertyzy" },
+                  { num: "9", label: "branż" },
                 ].map((kpi) => (
                   <div key={kpi.label}>
-                    <p className="mono text-2xl font-bold text-dark">{kpi.num}</p>
-                    <p className="text-sm text-muted">{kpi.label}</p>
+                    <p className="mono text-3xl font-bold text-white">{kpi.num}</p>
+                    <p className="text-sm text-white/35">{kpi.label}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Portrait */}
-            <div className="lg:col-span-2 flex justify-center lg:justify-end">
+            {/* Portrait + floating cards */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end">
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-accent/8 via-accent/4 to-transparent rounded-3xl -rotate-2" />
-                <div className="absolute -bottom-3 -right-3 w-20 h-20 border-2 border-accent/15 rounded-2xl" />
+                {/* Glow behind portrait */}
+                <div className="absolute -inset-8 bg-gradient-to-br from-accent/20 via-accent/10 to-violet-500/10 rounded-3xl blur-2xl pointer-events-none" />
+                <div className="absolute -inset-1 bg-gradient-to-br from-accent/30 to-violet-500/20 rounded-2xl" />
                 <Image
                   src="/piotr-sobczyk.jpg"
                   alt="Piotr Sobczyk"
                   width={300}
                   height={300}
-                  className="relative rounded-2xl grayscale contrast-110 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover shadow-2xl shadow-dark/10"
+                  className="relative rounded-2xl grayscale contrast-110 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover"
                   priority
                 />
-                {/* Report card */}
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg shadow-dark/8 p-4 border border-line/50">
-                  <div className="grid grid-cols-2 gap-x-5 gap-y-2">
+                {/* Floating card: role */}
+                <div className="absolute -top-4 -right-4 sm:-right-8 bg-white/10 backdrop-blur-md rounded-xl px-4 py-2.5 border border-white/10 shadow-lg">
+                  <p className="text-[10px] text-white/40 uppercase tracking-wider">Rola</p>
+                  <p className="text-sm font-semibold text-white">Head of Digital</p>
+                </div>
+                {/* Floating card: skills */}
+                <div className="absolute -bottom-5 -left-4 sm:-left-10 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/10 shadow-lg">
+                  <div className="grid grid-cols-2 gap-x-5 gap-y-1.5">
                     {["PPC", "SEO", "Analytics", "Strategy"].map((s) => (
                       <div key={s} className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                        <span className="text-xs font-medium text-dark">{s}</span>
+                        <span className="text-xs font-medium text-white/80">{s}</span>
                       </div>
                     ))}
+                  </div>
+                </div>
+                {/* Floating metric */}
+                <div className="absolute top-1/2 -right-3 sm:-right-14 -translate-y-1/2 bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 hidden sm:block">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                    </svg>
+                    <span className="mono text-xs text-emerald-400 font-bold">+127%</span>
                   </div>
                 </div>
               </div>
