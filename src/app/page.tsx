@@ -2,8 +2,15 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import ContactForm from "@/components/ContactForm";
 import ScrollReveal from "@/components/ScrollReveal";
+import { getLandingPage } from "@/sanity/landingPage";
 
-const experience = [
+// Returns the Sanity array when it's a non-empty list, otherwise the default.
+// Prevents a partially-filled CMS array from ghosting out the built-in content.
+function pickArray<T>(src: unknown, fallback: T[]): T[] {
+  return Array.isArray(src) && src.length > 0 ? (src as T[]) : fallback;
+}
+
+const defaultExperience = [
   "GetResponse",
   "Patronite.pl",
   "Captains",
@@ -15,14 +22,14 @@ const experience = [
   "Wirtualna Polska",
 ];
 
-const stats = [
+const defaultStats = [
   { num: "15+", label: "lat w digitalu" },
   { num: "50+", label: "projektów" },
   { num: "11", label: "branż" },
   { num: "22 mln zł", label: "budżetów pod nadzorem" },
 ];
 
-const audience = [
+const defaultAudience = [
   {
     title: "Wydajesz na marketing, ale nie wiesz, co z tego masz",
     text: "Raporty mówią o zasięgach i kliknięciach, a Ty chcesz wiedzieć: ile kosztuje klient i które działania zarabiają. Ustawiam pomiar tak, żeby było to widać czarno na białym.",
@@ -45,7 +52,7 @@ const audience = [
   },
 ];
 
-const ownerItems = [
+const defaultOwnerItems = [
   { text: "strategia digital i metryka nadrzędna", icon: "M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" },
   { text: "architektura pomiaru: GA4, konwersje, atrybucja, dashboardy", icon: "M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" },
   { text: "backlog eksperymentów i priorytety", icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" },
@@ -54,7 +61,7 @@ const ownerItems = [
   { text: "raportowanie pod decyzje zarządu", icon: "M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" },
 ];
 
-const specialistItems = [
+const defaultSpecialistItems = [
   "SEO",
   "PPC: Google, Meta, LinkedIn Ads",
   "social media",
@@ -64,7 +71,7 @@ const specialistItems = [
   "wdrożenia techniczne tagowania",
 ];
 
-const processSteps = [
+const defaultProcessSteps = [
   {
     step: "01",
     title: "Rozmowa (bezpłatnie)",
@@ -97,7 +104,7 @@ const processSteps = [
   },
 ];
 
-const timeline = [
+const defaultTimeline = [
   {
     range: "Dni 1–30",
     title: "Fundament",
@@ -115,7 +122,7 @@ const timeline = [
   },
 ];
 
-const packages = [
+const defaultPackages = [
   {
     name: "Audyt digital + analityka + strategia",
     price: "8 500",
@@ -163,7 +170,7 @@ const packages = [
   },
 ];
 
-const faq = [
+const defaultFaq = [
   {
     question: "Czym różnisz się od „zewnętrznego marketera” czy koordynatora?",
     answer:
@@ -196,13 +203,66 @@ const faq = [
   },
 ];
 
-const skills = [
+const defaultSkills = [
   "Google Ads", "GA4", "Atrybucja", "PPC", "SEO",
   "E-commerce", "Eksperymenty A/B", "Dashboardy",
   "Strategia", "ROI", "Reporting",
 ];
 
-export default function Home() {
+export default async function Home() {
+  const sanity = await getLandingPage();
+
+  // Data overlay: arrays with icons keep icons from defaults and overlay text
+  // by index from Sanity; pure-text arrays fall back wholesale.
+  const experience = pickArray(sanity?.experience, defaultExperience);
+  const stats = pickArray(sanity?.stats, defaultStats).map((d, i) => ({
+    num: d?.num ?? defaultStats[i]?.num ?? "",
+    label: d?.label ?? defaultStats[i]?.label ?? "",
+  }));
+  const audience = defaultAudience.map((d, i) => {
+    const s = sanity?.audienceItems?.[i];
+    return { icon: d.icon, title: s?.title ?? d.title, text: s?.text ?? d.text };
+  });
+  const ownerItems = defaultOwnerItems.map((d, i) => ({
+    icon: d.icon,
+    text: sanity?.ownerItems?.[i] ?? d.text,
+  }));
+  const specialistItems = pickArray(sanity?.specialistItems, defaultSpecialistItems);
+  const processSteps = defaultProcessSteps.map((d, i) => {
+    const s = sanity?.processSteps?.[i];
+    return {
+      step: d.step,
+      icon: d.icon,
+      title: s?.title ?? d.title,
+      text: s?.text ?? d.text,
+    };
+  });
+  const timeline = defaultTimeline.map((d, i) => {
+    const s = sanity?.timeline?.[i];
+    return {
+      range: s?.range ?? d.range,
+      title: s?.title ?? d.title,
+      text: s?.text ?? d.text,
+    };
+  });
+  const packages = pickArray(sanity?.packages, defaultPackages).map((d, i) => {
+    const fb = defaultPackages[i] ?? defaultPackages[0];
+    return {
+      name: d?.name ?? fb.name,
+      price: d?.price ?? fb.price,
+      period: d?.period ?? fb.period,
+      description: d?.description ?? fb.description,
+      items: pickArray(d?.items, fb.items),
+      highlighted: d?.highlighted ?? fb.highlighted,
+      badge: d?.badge ?? fb.badge,
+    };
+  });
+  const faq = defaultFaq.map((d, i) => {
+    const s = sanity?.faqItems?.[i];
+    return { question: s?.question ?? d.question, answer: s?.answer ?? d.answer };
+  });
+  const skills = pickArray(sanity?.skills, defaultSkills);
+
   return (
     <>
       <Nav />
@@ -217,25 +277,25 @@ export default function Home() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             <div className="lg:col-span-7">
               <p className="mono text-xs tracking-[0.18em] uppercase text-yellow mb-5">
-                Piotr Sobczyk / zewnętrzny Head of Digital Marketing
+                {sanity?.heroOverline ?? "Piotr Sobczyk / zewnętrzny Head of Digital Marketing"}
               </p>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.75rem] font-semibold tracking-tight text-paper leading-[1.06] mb-6">
-                Twój marketing generuje dane.{" "}
+                {sanity?.heroHeadlinePre ?? "Twój marketing generuje dane."}{" "}
                 <span className="relative inline-block text-ink">
                   <span className="absolute inset-x-[-0.15em] top-[0.08em] bottom-[-0.06em] bg-yellow -rotate-1 rounded-sm" aria-hidden="true" />
-                  <span className="relative">Ja zamieniam je</span>
+                  <span className="relative">{sanity?.heroHeadlineHighlight ?? "Ja zamieniam je"}</span>
                 </span>{" "}
-                w decyzje i wzrost.
+                {sanity?.heroHeadlinePost ?? "w decyzje i wzrost."}
               </h1>
               <p className="text-lg md:text-xl text-paper/55 leading-relaxed mb-10 max-w-xl">
-                Wchodzę jako zewnętrzny Head of Digital. Najpierw naprawiam pomiar, bo większość firm decyduje na niekompletnych danych. Potem prowadzę eksperymenty wzrostowe w 2-tygodniowych sprintach: skaluję to, co zarabia, wycinam to, co… tylko kosztuje.
+                {sanity?.heroLead ?? "Wchodzę jako zewnętrzny Head of Digital. Najpierw naprawiam pomiar, bo większość firm decyduje na niekompletnych danych. Potem prowadzę eksperymenty wzrostowe w 2-tygodniowych sprintach: skaluję to, co zarabia, wycinam to, co… tylko kosztuje."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-14">
                 <a
                   href="#contact"
                   className="inline-flex items-center justify-center gap-2 bg-yellow text-ink font-semibold px-7 py-3.5 rounded-full border-2 border-ink hover:bg-yellow-dark transition-colors text-base"
                 >
-                  Porozmawiajmy
+                  {sanity?.heroCtaPrimary ?? "Porozmawiajmy"}
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
@@ -244,7 +304,7 @@ export default function Home() {
                   href="#process"
                   className="inline-flex items-center justify-center border-2 border-paper/25 text-paper/80 font-semibold px-7 py-3.5 rounded-full hover:bg-paper/5 hover:text-paper transition-all text-base"
                 >
-                  Jak pracuję z klientami
+                  {sanity?.heroCtaSecondary ?? "Jak pracuję z klientami"}
                 </a>
               </div>
 
@@ -306,7 +366,7 @@ export default function Home() {
       {/* Experience bar: logo placeholders */}
       <section className="py-10 bg-cream border-y-2 border-ink/10 overflow-hidden">
         <p className="mono text-[10px] tracking-[0.2em] uppercase text-muted text-center mb-6 px-5">
-          Doświadczenie z firm i projektów
+          {sanity?.experienceLabel ?? "Doświadczenie z firm i projektów"}
         </p>
         <div className="relative">
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none" />
@@ -347,12 +407,12 @@ export default function Home() {
           <div className="absolute bottom-0 right-12 w-[200px] h-[200px] dots-pattern opacity-[0.12] pointer-events-none hidden lg:block" />
           <div className="max-w-6xl mx-auto relative">
             <div className="text-center mb-14">
-              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">Dla kogo</span>
+              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">{sanity?.audienceKicker ?? "Dla kogo"}</span>
               <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink mt-4">
-                Rozpoznajesz się w tym?
+                {sanity?.audienceTitle ?? "Rozpoznajesz się w tym?"}
               </h2>
               <p className="text-muted mt-3 max-w-xl mx-auto">
-                Pracuję z firmami, które wiedzą, że marketing jest ważny, ale nie mają nikogo, kto bierze odpowiedzialność za liczby.
+                {sanity?.audienceLead ?? "Pracuję z firmami, które wiedzą, że marketing jest ważny, ale nie mają nikogo, kto bierze odpowiedzialność za liczby."}
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
@@ -378,12 +438,12 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-yellow/[0.1] rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none float-slow" />
           <div className="max-w-6xl mx-auto relative">
             <div className="text-center mb-14">
-              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">Zakres</span>
+              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">{sanity?.scopeKicker ?? "Zakres"}</span>
               <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink mt-4">
-                Jasny podział ról
+                {sanity?.scopeTitle ?? "Jasny podział ról"}
               </h2>
               <p className="text-muted mt-3 max-w-xl mx-auto">
-                Ja odpowiadam za dane, kierunek i decyzje. Specjaliści odpowiadają za wykonanie.
+                {sanity?.scopeLead ?? "Ja odpowiadam za dane, kierunek i decyzje. Specjaliści odpowiadają za wykonanie."}
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
@@ -394,7 +454,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                     </svg>
                   </div>
-                  <h3 className="font-display text-lg font-semibold text-ink">Piotr odpowiada za</h3>
+                  <h3 className="font-display text-lg font-semibold text-ink">{sanity?.ownerTitle ?? "Piotr odpowiada za"}</h3>
                 </div>
                 <ul className="space-y-3.5">
                   {ownerItems.map((item) => (
@@ -414,7 +474,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                     </svg>
                   </div>
-                  <h3 className="font-display text-lg font-semibold text-ink">Specjaliści wykonują</h3>
+                  <h3 className="font-display text-lg font-semibold text-ink">{sanity?.specialistTitle ?? "Specjaliści wykonują"}</h3>
                 </div>
                 <ul className="space-y-3.5">
                   {specialistItems.map((item) => (
@@ -425,7 +485,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <p className="mt-6 pt-5 border-t-2 border-dashed border-ink/15 text-sm text-ink">
-                  <span className="font-semibold">Nie masz specjalistów?</span> Wpuszczam swoich, sprawdzonych na wcześniejszych projektach.
+                  <span className="font-semibold">{sanity?.specialistNoteStrong ?? "Nie masz specjalistów?"}</span> {sanity?.specialistNoteRest ?? "Wpuszczam swoich, sprawdzonych na wcześniejszych projektach."}
                 </p>
               </div>
             </div>
@@ -440,12 +500,12 @@ export default function Home() {
           <div className="absolute top-20 right-16 w-[180px] h-[180px] dots-pattern opacity-[0.12] pointer-events-none hidden lg:block" />
           <div className="max-w-6xl mx-auto relative">
             <div className="text-center mb-14">
-              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">Jak pracuję</span>
+              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">{sanity?.processKicker ?? "Jak pracuję"}</span>
               <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink mt-4">
-                Dane → decyzje → wzrost
+                {sanity?.processTitle ?? "Dane → decyzje → wzrost"}
               </h2>
               <p className="text-muted mt-3 max-w-xl mx-auto">
-                Pięć kroków: od naprawy pomiaru po wzrost prowadzony eksperymentami.
+                {sanity?.processLead ?? "Pięć kroków: od naprawy pomiaru po wzrost prowadzony eksperymentami."}
               </p>
             </div>
             <div className="grid md:grid-cols-5 gap-4">
@@ -474,12 +534,12 @@ export default function Home() {
           <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-yellow/[0.1] rounded-full blur-3xl -translate-y-1/4 translate-x-1/4 pointer-events-none float-slower" />
           <div className="max-w-6xl mx-auto relative">
             <div className="text-center mb-14">
-              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">Pierwsze 90 dni</span>
+              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">{sanity?.timelineKicker ?? "Pierwsze 90 dni"}</span>
               <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink mt-4">
-                Co dzieje się od pierwszego dnia
+                {sanity?.timelineTitle ?? "Co dzieje się od pierwszego dnia"}
               </h2>
               <p className="text-muted mt-3 max-w-xl mx-auto">
-                Konkretny plan na trzy pierwsze miesiące, bez „rozkręcania się” przez pół roku.
+                {sanity?.timelineLead ?? "Konkretny plan na trzy pierwsze miesiące, bez „rozkręcania się” przez pół roku."}
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -504,16 +564,16 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-yellow/8 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3 pointer-events-none float-slower" />
         <div className="max-w-3xl mx-auto text-center relative">
           <h2 className="font-display text-2xl md:text-3xl font-semibold text-paper mb-4">
-            Sprawdźmy, co da się policzyć i poprawić
+            {sanity?.midCtaTitle ?? "Sprawdźmy, co da się policzyć i poprawić"}
           </h2>
           <p className="text-paper/60 text-lg mb-8">
-            Bezpłatna rozmowa, konkretne wnioski, zero zobowiązań.
+            {sanity?.midCtaText ?? "Bezpłatna rozmowa, konkretne wnioski, zero zobowiązań."}
           </p>
           <a
             href="#contact"
             className="inline-flex items-center gap-2 bg-yellow text-ink font-semibold px-8 py-4 rounded-full border-2 border-ink hover:bg-yellow-dark transition-colors text-base"
           >
-            Umów konsultację
+            {sanity?.midCtaButton ?? "Umów konsultację"}
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
@@ -527,19 +587,19 @@ export default function Home() {
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-yellow/[0.08] rounded-full blur-3xl -translate-y-1/4 translate-x-1/4 pointer-events-none float-slow" />
           <div className="max-w-6xl mx-auto relative">
             <div className="text-center mb-12">
-              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">Cennik</span>
+              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">{sanity?.pricingKicker ?? "Cennik"}</span>
               <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink mt-4">
-                Trzy sposoby współpracy
+                {sanity?.pricingTitle ?? "Trzy sposoby współpracy"}
               </h2>
               <p className="text-muted mt-3 max-w-xl mx-auto">
-                Od jednorazowego audytu po pełną odpowiedzialność za digital.
+                {sanity?.pricingLead ?? "Od jednorazowego audytu po pełną odpowiedzialność za digital."}
               </p>
             </div>
 
             {/* Anchor */}
             <div className="max-w-2xl mx-auto mb-12 sticker rounded-2xl bg-yellow/20 p-5 sm:p-6 text-center">
               <p className="text-sm sm:text-[15px] text-ink leading-relaxed">
-                <span className="font-semibold">Etatowy Head of Digital kosztuje 20–28 tys. zł miesięcznie</span> plus rekrutacja i ZUS. Poniżej dostajesz to samo doświadczenie w modelu, który możesz wyłączyć.
+                <span className="font-semibold">{sanity?.pricingAnchorStrong ?? "Etatowy Head of Digital kosztuje 20–28 tys. zł miesięcznie"}</span> {sanity?.pricingAnchorRest ?? "plus rekrutacja i ZUS. Poniżej dostajesz to samo doświadczenie w modelu, który możesz wyłączyć."}
               </p>
             </div>
 
@@ -586,7 +646,7 @@ export default function Home() {
               ))}
             </div>
             <p className="text-center text-xs text-muted mt-8 max-w-2xl mx-auto">
-              Minimum 3 miesiące, wyjście po 1. miesiącu bez kar. Ceny nie obejmują budżetów reklamowych ani pracy specjalistów (orientacyjnie 3–10 tys. zł/mc zależnie od zakresu).
+              {sanity?.pricingFootnote ?? "Minimum 3 miesiące, wyjście po 1. miesiącu bez kar. Ceny nie obejmują budżetów reklamowych ani pracy specjalistów (orientacyjnie 3–10 tys. zł/mc zależnie od zakresu)."}
             </p>
           </div>
         </section>
@@ -598,9 +658,9 @@ export default function Home() {
           <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-yellow/[0.06] rounded-full blur-3xl translate-y-1/3 translate-x-1/4 pointer-events-none float-slow" />
           <div className="max-w-3xl mx-auto relative">
             <div className="text-center mb-14">
-              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">FAQ</span>
+              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">{sanity?.faqKicker ?? "FAQ"}</span>
               <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink mt-4">
-                Często zadawane pytania
+                {sanity?.faqTitle ?? "Często zadawane pytania"}
               </h2>
             </div>
             <div className="space-y-4">
@@ -631,15 +691,15 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             <div>
-              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">Kontakt</span>
+              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">{sanity?.contactKicker ?? "Kontakt"}</span>
               <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-paper mb-6 mt-4">
-                Napisz, jakie pytanie o swój marketing zadajesz sobie najczęściej
+                {sanity?.contactTitle ?? "Napisz, jakie pytanie o swój marketing zadajesz sobie najczęściej"}
               </h2>
               <p className="text-lg text-paper/55 leading-relaxed mb-10">
-                Odpowiadam w 48 godzin, od razu ze wskazaniem, gdzie zacząłbym szukać odpowiedzi w Twoich danych.
+                {sanity?.contactLead ?? "Odpowiadam w 48 godzin, od razu ze wskazaniem, gdzie zacząłbym szukać odpowiedzi w Twoich danych."}
               </p>
               <div className="space-y-5">
-                <a href="mailto:piotr@sobczyk.io" className="flex items-center gap-4 group">
+                <a href={`mailto:${sanity?.contactEmail ?? "piotr@sobczyk.io"}`} className="flex items-center gap-4 group">
                   <div className="w-11 h-11 rounded-xl bg-yellow border-2 border-ink flex items-center justify-center">
                     <svg className="w-5 h-5 text-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -647,10 +707,10 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-[10px] text-paper/40 uppercase tracking-wider">Email</p>
-                    <p className="text-paper/90 font-medium group-hover:text-yellow transition-colors">piotr@sobczyk.io</p>
+                    <p className="text-paper/90 font-medium group-hover:text-yellow transition-colors">{sanity?.contactEmail ?? "piotr@sobczyk.io"}</p>
                   </div>
                 </a>
-                <a href="https://www.linkedin.com/in/piotrsobczyk/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+                <a href={sanity?.contactLinkedinUrl ?? "https://www.linkedin.com/in/piotrsobczyk/"} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
                   <div className="w-11 h-11 rounded-xl bg-yellow border-2 border-ink flex items-center justify-center">
                     <svg className="w-5 h-5 text-ink" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -658,7 +718,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-[10px] text-paper/40 uppercase tracking-wider">LinkedIn</p>
-                    <p className="text-paper/90 font-medium group-hover:text-yellow transition-colors">linkedin.com/in/piotrsobczyk</p>
+                    <p className="text-paper/90 font-medium group-hover:text-yellow transition-colors">{sanity?.contactLinkedinLabel ?? "linkedin.com/in/piotrsobczyk"}</p>
                   </div>
                 </a>
               </div>
