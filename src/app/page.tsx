@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import ContactForm from "@/components/ContactForm";
 import ScrollReveal from "@/components/ScrollReveal";
 import Icon from "@/components/Icon";
+import CompanyLogo from "@/components/CompanyLogo";
 import { getLandingPage } from "@/sanity/landingPage";
 import { urlForImage } from "@/sanity/image";
 import type { IconName } from "@/sanity/iconCatalog";
@@ -13,16 +14,19 @@ function pickArray<T>(src: unknown, fallback: T[]): T[] {
   return Array.isArray(src) && src.length > 0 ? (src as T[]) : fallback;
 }
 
-const defaultExperience = [
-  "GetResponse",
-  "Patronite.pl",
-  "Captains",
-  "Allcon Osiedla",
-  "Shoplyze",
-  "Bright Future",
-  "OX Media",
-  "Apella S.A.",
-  "Wirtualna Polska",
+// Each entry pairs a display name with a slug. The slug doubles as the
+// /public/logos/<slug>.svg lookup, so dropping a file there auto-replaces
+// the text badge with the vector logo — no schema edit needed.
+const defaultExperience: { name: string; slug: string }[] = [
+  { name: "GetResponse", slug: "getresponse" },
+  { name: "Patronite.pl", slug: "patronite" },
+  { name: "Captains", slug: "captains" },
+  { name: "Allcon Osiedla", slug: "allcon-osiedla" },
+  { name: "Shoplyze", slug: "shoplyze" },
+  { name: "Bright Future", slug: "bright-future" },
+  { name: "OX Media", slug: "ox-media" },
+  { name: "Apella S.A.", slug: "apella" },
+  { name: "Wirtualna Polska", slug: "wirtualna-polska" },
 ];
 
 const defaultStats = [
@@ -217,7 +221,26 @@ export default async function Home() {
 
   // Data overlay: arrays with icons keep icons from defaults and overlay text
   // by index from Sanity; pure-text arrays fall back wholesale.
-  const experience = pickArray(sanity?.experience, defaultExperience);
+  // Experience: take Sanity entries when present, otherwise the bundled list.
+  // Each entry is normalized to {name, slug, sanityUrl, alt} so the marquee
+  // can stay a dumb renderer — the resolution cascade (Sanity logo →
+  // /logos/<slug>.svg → text) is done inside <CompanyLogo>.
+  type ExperienceEntry = NonNullable<typeof sanity>["experience"] extends (infer U)[] | undefined ? U : never;
+  const experienceSource: ExperienceEntry[] =
+    Array.isArray(sanity?.experience) && sanity.experience.length > 0
+      ? sanity.experience
+      : defaultExperience;
+  const experience = experienceSource.map((entry) => {
+    const sanityUrl = entry.logo
+      ? urlForImage(entry.logo)?.height(48).fit("max").url() ?? null
+      : null;
+    return {
+      name: entry.name ?? "",
+      slug: entry.slug,
+      sanityUrl,
+      alt: entry.logo?.alt,
+    };
+  });
   const stats = pickArray(sanity?.stats, defaultStats).map((d, i) => ({
     num: d?.num ?? defaultStats[i]?.num ?? "",
     label: d?.label ?? defaultStats[i]?.label ?? "",
@@ -393,13 +416,18 @@ export default async function Home() {
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none" />
           <div className="flex animate-marquee">
-            {[...experience, ...experience].map((name, i) => (
+            {[...experience, ...experience].map((item, i) => (
               <div
-                key={`${name}-${i}`}
+                key={`${item.name}-${i}`}
                 className="mx-3 flex h-14 min-w-[150px] items-center justify-center rounded-xl border-2 border-ink/15 bg-paper px-6"
-                title="Logo do podmiany"
+                title={item.name}
               >
-                <span className="text-sm font-semibold text-ink/40 whitespace-nowrap">{name}</span>
+                <CompanyLogo
+                  name={item.name}
+                  slug={item.slug}
+                  sanityUrl={item.sanityUrl}
+                  alt={item.alt}
+                />
               </div>
             ))}
           </div>

@@ -58,7 +58,37 @@ export const landingPage = defineType({
 
     // — Trust —
     defineField({ name: "experienceLabel", title: "Etykieta paska logo", type: "string", group: "trust" }),
-    defineField({ name: "experience", title: "Firmy / projekty", type: "array", of: [defineArrayMember({ type: "string" })], group: "trust" }),
+    defineField({
+      name: "experience",
+      title: "Firmy / projekty",
+      description: "Karta z logo (jeśli wgrane) lub samą nazwą. Identyfikator pozwala też podłożyć plik z /public/logos/<identyfikator>.svg w repo.",
+      type: "array",
+      group: "trust",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "name", title: "Nazwa", type: "string" }),
+            defineField({
+              name: "slug",
+              title: "Identyfikator (np. getresponse)",
+              type: "string",
+              description: "Małe litery, bez spacji. Używany jako fallback do /public/logos/<id>.svg.",
+            }),
+            defineField({
+              name: "logo",
+              title: "Logo (SVG lub PNG, na jasnym tle)",
+              type: "image",
+              options: { hotspot: false },
+              fields: [
+                defineField({ name: "alt", title: "Tekst alternatywny", type: "string" }),
+              ],
+            }),
+          ],
+          preview: { select: { title: "name", subtitle: "slug", media: "logo" } },
+        }),
+      ],
+    }),
     defineField({ name: "skills", title: "Umiejętności (tagi)", type: "array", of: [defineArrayMember({ type: "string" })], group: "trust" }),
 
     // — Audience —

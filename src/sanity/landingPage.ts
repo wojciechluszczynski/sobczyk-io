@@ -17,7 +17,11 @@ export type LandingPageData = {
   stats?: { num?: string; label?: string }[];
 
   experienceLabel?: string;
-  experience?: string[];
+  experience?: {
+    name?: string;
+    slug?: string;
+    logo?: SanityImageSource & { alt?: string };
+  }[];
   skills?: string[];
 
   audienceKicker?: string;
