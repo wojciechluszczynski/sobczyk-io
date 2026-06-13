@@ -89,26 +89,34 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Czym się różnisz od koordynatora marketingu?",
+          name: "Czym różnisz się od „zewnętrznego marketera” czy koordynatora?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Koordynator pilnuje, żeby zadania się działy. Ja zaczynam od danych: naprawiam pomiar, ustalam co realnie napędza wynik i prowadzę wzrost eksperymentami. Odpowiadam za liczby, nie za odhaczanie zadań.",
+            text: "Dwiema rzeczami. Po pierwsze: zanim cokolwiek zoptymalizuję, naprawiam pomiar — bez tego każda decyzja to zgadywanie. Po drugie: pracuję w sprintach eksperymentów, więc co dwa tygodnie zapada decyzja „skalujemy albo wycinamy”, a nie „działamy dalej”.",
           },
         },
         {
           "@type": "Question",
-          name: "Mam już agencję — po co mi jeszcze Ty?",
+          name: "Czy robisz kampanie, grafiki, treści?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Agencja wykonuje. Ja patrzę na całość, rozliczam ją z wyników i decyduję, gdzie iść z budżetem. Często jestem osobą, której brakuje między zarządem a agencją.",
+            text: "Nie. Odpowiadam za kierunek, pomiar i wynik. Wykonują specjaliści — Twoi albo moi podwykonawcy, których briefuję i rozliczam.",
           },
         },
         {
           "@type": "Question",
-          name: "Czy mogę dzwonić, kiedy chcę?",
+          name: "Mam już agencję / specjalistów. Po co mi jeszcze Ty?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Pracujemy w ustalonym rytmie: sprinty co 2 tygodnie i komunikacja asynchroniczna. Dzięki temu decyzje są oparte na danych, a nie na gaszeniu pożarów.",
+            text: "Właśnie wtedy jestem najbardziej potrzebny. Agencja ocenia sama siebie własnymi raportami. Ja jestem po Twojej stronie stołu: weryfikuję na danych, czy to, za co płacisz, faktycznie zarabia.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Czy mogę dzwonić w dowolnym momencie?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Pracujemy w rytmie sprintów i komunikacji asynchronicznej. Stan marketingu widzisz w każdej chwili w dashboardzie — nie musisz dzwonić, żeby wiedzieć, co się dzieje. Ale wszystko jest kwestią dogadania.",
           },
         },
         {
@@ -116,23 +124,15 @@ const jsonLd = {
           name: "Jaki jest minimalny okres współpracy?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Pakiety stałe ruszają bez długich zobowiązań — wyjście jest możliwe po pierwszym miesiącu. Audyt i strategia to jednorazowe zlecenie.",
+            text: "3 miesiące — tyle trwa cykl: naprawa pomiaru, eksperymenty, skalowanie. Po pierwszym miesiącu możesz spokojnie wyjść bez konsekwencji.",
           },
         },
         {
           "@type": "Question",
-          name: "Nie mam specjalistów ani agencji. Co wtedy?",
+          name: "Dla kogo to NIE jest?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Wpuszczam sprawdzonych ludzi, z którymi pracuję. Ty masz jeden punkt kontaktu i jedną osobę odpowiedzialną za wynik.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Dla kogo ta współpraca nie jest odpowiednia?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Dla firm, które chcą tylko wykonawcy do zadań, nie chcą mierzyć efektów albo nie są gotowe podejmować decyzji na podstawie danych.",
+            text: "Dla firm szukających wykonawcy „od postów”, oczekujących efektów bez budżetu albo takich, które nie chcą wiedzieć, ile naprawdę kosztuje ich klient.",
           },
         },
       ],

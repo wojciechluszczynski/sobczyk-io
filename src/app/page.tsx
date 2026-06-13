@@ -24,74 +24,75 @@ const stats = [
 
 const audience = [
   {
-    title: "Raporty mówią o klikach, nie o kliencie",
-    text: "Dostajesz CTR, zasięgi i wyświetlenia, ale nikt nie liczy, ile realnie kosztuje pozyskanie klienta i co naprawdę napędza sprzedaż.",
+    title: "Wydajesz na marketing, ale nie wiesz, co z tego masz",
+    text: "Raporty mówią o zasięgach i kliknięciach, a Ty chcesz wiedzieć: ile kosztuje klient i które działania zarabiają. Ustawiam pomiar tak, żeby było to widać czarno na białym.",
     icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z",
   },
   {
-    title: "Każdy specjalista chwali swój kanał",
-    text: "SEO mówi, że działa SEO. Ads — że Ads. Brakuje kogoś, kto patrzy na całość i rozstrzyga, gdzie naprawdę warto iść z budżetem.",
+    title: "Każdy specjalista pokazuje, że „jego kanał działa”",
+    text: "SEO chwali pozycje, Ads chwali ROAS, social chwali zasięgi — a sprzedaż stoi. Patrzę na całość lejka i rozstrzygam na danych, kto naprawdę dowozi.",
     icon: "M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z",
   },
   {
     title: "Decyzje zapadają na wyczucie",
-    text: "GA4 ledwo działa, atrybucja jest zepsuta, więc budżet idzie tam, gdzie „czujemy”, a nie tam, gdzie zwraca się najlepiej.",
+    text: "Bo danym nie da się ufać: GA4 skonfigurowane „jakoś”, konwersje liczone podwójnie, brak atrybucji. Naprawiam fundament pomiarowy w pierwszym miesiącu.",
     icon: "M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
   },
   {
     title: "Etat Head of Digital to 20–28 tys.",
-    text: "Do tego ZUS, rekrutacja i miesiące wdrożenia. Senioralne prowadzenie marketingu bez kosztu pełnego etatu i bez długiego onboardingu.",
+    text: "Do tego rekrutacja i ZUS. Dostajesz to samo doświadczenie za ułamek kosztu — w modelu, z którego możesz wyjść po pierwszym miesiącu.",
     icon: "M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z",
   },
 ];
 
 const ownerItems = [
-  { text: "pomiar, GA4 i atrybucja, którym można ufać", icon: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" },
-  { text: "jeden dashboard z liczbami pod decyzje", icon: "M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" },
-  { text: "strategia i priorytety oparte na danych", icon: "M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" },
-  { text: "backlog eksperymentów wzrostowych", icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" },
-  { text: "budżet rozdzielony wg ROI, nie przeczuć", icon: "M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" },
-  { text: "raport dla zarządu w języku wyników", icon: "M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" },
+  { text: "strategia digital i metryka nadrzędna", icon: "M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" },
+  { text: "architektura pomiaru: GA4, konwersje, atrybucja, dashboardy", icon: "M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" },
+  { text: "backlog eksperymentów i priorytety", icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" },
+  { text: "budżet i jego zwrot", icon: "M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" },
+  { text: "nadzór nad specjalistami i agencjami", icon: "M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" },
+  { text: "raportowanie pod decyzje zarządu", icon: "M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" },
 ];
 
 const specialistItems = [
   "SEO",
   "PPC — Google, Meta, LinkedIn Ads",
-  "content i copywriting",
-  "tagowanie i wdrożenia analityczne",
   "social media",
+  "content i copywriting",
   "video i grafika",
+  "marketing automation",
+  "wdrożenia techniczne tagowania",
 ];
 
 const processSteps = [
   {
     step: "01",
-    title: "Rozmowa",
-    text: "Krótka konsultacja: cele biznesowe, sytuacja i to, czy jest sens pracować razem.",
+    title: "Rozmowa (bezpłatnie)",
+    text: "30 minut o Twoich liczbach. Zwykle już na tej rozmowie pokażę 2–3 hipotezy wzrostowe, które możemy sprawdzić w pierwszym miesiącu.",
     icon: "M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155",
   },
   {
     step: "02",
     title: "Audyt digital + analityki",
-    text: "Prześwietlam kampanie i SEO oraz — przede wszystkim — czy pomiar i atrybucja w ogóle działają.",
+    text: "Prześwietlam stronę, kampanie, SEO i lejek oraz fundament pomiarowy: GA4, konwersje, atrybucję, tagowanie. Wynik: co działa, co nie i czego w ogóle nie widać.",
     icon: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z",
   },
   {
     step: "03",
-    title: "Strategia + dashboard",
-    text: "Priorytety i KPI oparte na danych, plus jeden dashboard z liczbami pod decyzje.",
+    title: "Strategia + dashboard zarządczy",
+    text: "Plan na 6–12 miesięcy, jedna metryka nadrzędna, KPI i budżety — plus dashboard live, w którym w każdej chwili widzisz stan marketingu, bez czekania na raport.",
     icon: "M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z",
   },
   {
     step: "04",
-    title: "Sprinty co 2 tygodnie",
-    text: "Prowadzę wzrost w 2-tygodniowych cyklach eksperymentów: hipoteza → test → wniosek.",
+    title: "Sprinty wzrostowe co 2 tygodnie",
+    text: "Stawiam hipotezy, briefuję specjalistów (Twoich lub moich), a na każdym spotkaniu rozstrzygamy na danych: skalujemy albo wycinamy.",
     icon: "M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99",
   },
   {
     step: "05",
-    title: "Raport dla zarządu",
-    text: "Co miesiąc raport w języku wyników: co zadziałało, co dalej i gdzie kierujemy budżet.",
+    title: "Raport miesięczny dla zarządu",
+    text: "Jedna strona: co urosło, co wyciąłem, co testuję dalej — w języku przychodu, nie kliknięć.",
     icon: "M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z",
   },
 ];
@@ -100,32 +101,32 @@ const timeline = [
   {
     range: "Dni 1–30",
     title: "Fundament",
-    text: "Naprawiam pomiar i atrybucję, audytuję kanały, stawiam dashboard. Wiemy, co liczymy i jak.",
+    text: "Audyt digitalu i analityki, naprawa pomiaru, strategia i metryka nadrzędna. Pierwsza szybka wygrana: zwykle wycięcie budżetu, który na poprawnych danych okazuje się przepalany.",
   },
   {
     range: "Dni 31–60",
     title: "Rytm",
-    text: "Ruszają sprinty eksperymentów co 2 tygodnie. Priorytety wg danych, pierwsze szybkie wygrane.",
+    text: "Dashboard zarządczy live, 4–6 eksperymentów wzrostowych, briefy i rytm pracy ze specjalistami.",
   },
   {
     range: "Dni 61–90",
     title: "Skalowanie",
-    text: "Skalujemy to, co działa, ucinamy to, co nie. Budżet płynie tam, gdzie zwrot jest największy.",
+    text: "Skalowanie zwycięskich eksperymentów i decyzje budżetowe na pełnych danych: czego robimy więcej, a czego nie robimy wcale.",
   },
 ];
 
 const packages = [
   {
-    name: "Audyt + strategia",
+    name: "Audyt digital + analityka + strategia",
     price: "8 500",
     period: "zł netto / jednorazowo",
-    description: "Prześwietlam marketing i pomiar, oddaję strategię, dashboard i plan na 90 dni.",
+    description: "Audyt kampanii, SEO i lejka plus audyt pomiaru — i gotowa strategia z planem na 90 dni.",
     items: [
-      "audyt kampanii, SEO i analityki",
-      "diagnoza GA4 i atrybucji",
+      "audyt kampanii, SEO i lejka",
+      "audyt pomiaru: GA4, konwersje, atrybucja",
       "strategia digital na 6–12 miesięcy",
-      "roadmapa 90 dni z priorytetami",
-      "dashboard z kluczowymi KPI",
+      "metryka nadrzędna + roadmapa 90 dni",
+      "backlog eksperymentów",
     ],
     highlighted: false,
     badge: null,
@@ -133,29 +134,29 @@ const packages = [
   {
     name: "Head of Digital",
     price: "9 500",
-    period: "zł / miesiąc",
+    period: "zł netto / mc",
     badge: "Najczęściej wybierany",
-    description: "Zewnętrzny Head of Digital: dane, decyzje i wzrost w 2-tygodniowych sprintach.",
+    description: "Pakiet główny: dane, decyzje i wzrost prowadzony w 2-tygodniowych sprintach.",
     items: [
-      "wszystko z audytu + strategii",
-      "sprinty eksperymentów co 2 tyg.",
-      "priorytety i budżet wg danych",
-      "nadzór nad specjalistami i agencjami",
+      "sprinty wzrostowe co 2 tygodnie",
+      "dashboard zarządczy live",
+      "backlog eksperymentów",
+      "nadzór nad specjalistami",
       "raport miesięczny dla zarządu",
     ],
     highlighted: true,
   },
   {
-    name: "Executive",
+    name: "Head of Digital — Executive",
     price: "12 500",
-    period: "zł / miesiąc",
+    period: "zł netto / mc",
     description: "Pełna odpowiedzialność za digital, zsynchronizowana z decyzjami zarządu.",
     items: [
-      "wszystko z pakietu Head of Digital",
-      "udział w decyzjach sprzedażowych",
-      "zarządzanie budżetem i ROI",
-      "testowanie i skalowanie nowych kanałów",
-      "rozszerzone raportowanie zarządcze",
+      "budżet i ROI",
+      "skalowanie i testowanie nowych kanałów",
+      "udział w spotkaniach zarządu",
+      "rozszerzona analityka: kohorty, LTV, prognozy",
+      "priorytetowy kontakt",
     ],
     highlighted: false,
     badge: null,
@@ -191,34 +192,34 @@ const publications = [
 
 const faq = [
   {
-    question: "Czym się różnisz od koordynatora marketingu?",
+    question: "Czym różnisz się od „zewnętrznego marketera” czy koordynatora?",
     answer:
-      "Koordynator pilnuje, żeby zadania się działy. Ja zaczynam od danych: naprawiam pomiar, ustalam co realnie napędza wynik i prowadzę wzrost eksperymentami. Odpowiadam za liczby, nie za odhaczanie zadań.",
+      "Dwiema rzeczami. Po pierwsze: zanim cokolwiek zoptymalizuję, naprawiam pomiar — bez tego każda decyzja to zgadywanie. Po drugie: pracuję w sprintach eksperymentów, więc co dwa tygodnie zapada decyzja „skalujemy albo wycinamy”, a nie „działamy dalej”.",
   },
   {
-    question: "Mam już agencję — po co mi jeszcze Ty?",
+    question: "Czy robisz kampanie, grafiki, treści?",
     answer:
-      "Agencja wykonuje. Ja patrzę na całość, rozliczam ją z wyników i decyduję, gdzie iść z budżetem. Często jestem osobą, której brakuje między zarządem a agencją.",
+      "Nie. Odpowiadam za kierunek, pomiar i wynik. Wykonują specjaliści — Twoi albo moi podwykonawcy, których briefuję i rozliczam.",
   },
   {
-    question: "Czy mogę dzwonić, kiedy chcę?",
+    question: "Mam już agencję / specjalistów. Po co mi jeszcze Ty?",
     answer:
-      "Pracujemy w ustalonym rytmie: sprinty co 2 tygodnie i komunikacja asynchroniczna. Dzięki temu decyzje są oparte na danych, a nie na gaszeniu pożarów.",
+      "Właśnie wtedy jestem najbardziej potrzebny. Agencja ocenia sama siebie własnymi raportami. Ja jestem po Twojej stronie stołu: weryfikuję na danych, czy to, za co płacisz, faktycznie zarabia.",
+  },
+  {
+    question: "Czy mogę dzwonić w dowolnym momencie?",
+    answer:
+      "Pracujemy w rytmie sprintów i komunikacji asynchronicznej. Stan marketingu widzisz w każdej chwili w dashboardzie — nie musisz dzwonić, żeby wiedzieć, co się dzieje. Ale wszystko jest kwestią dogadania.",
   },
   {
     question: "Jaki jest minimalny okres współpracy?",
     answer:
-      "Pakiety stałe ruszają bez długich zobowiązań — wyjście jest możliwe po pierwszym miesiącu. Audyt i strategia to jednorazowe zlecenie.",
+      "3 miesiące — tyle trwa cykl: naprawa pomiaru, eksperymenty, skalowanie. Po pierwszym miesiącu możesz spokojnie wyjść bez konsekwencji.",
   },
   {
-    question: "Nie mam specjalistów ani agencji. Co wtedy?",
+    question: "Dla kogo to NIE jest?",
     answer:
-      "Wpuszczam sprawdzonych ludzi, z którymi pracuję. Ty masz jeden punkt kontaktu i jedną osobę odpowiedzialną za wynik.",
-  },
-  {
-    question: "Dla kogo ta współpraca NIE jest?",
-    answer:
-      "Dla firm, które chcą tylko wykonawcy do zadań, nie chcą mierzyć efektów albo nie są gotowe podejmować decyzji na podstawie danych.",
+      "Dla firm szukających wykonawcy „od postów”, oczekujących efektów bez budżetu albo takich, które nie chcą wiedzieć, ile naprawdę kosztuje ich klient.",
   },
 ];
 
@@ -254,7 +255,7 @@ export default function Home() {
                 w decyzje i wzrost.
               </h1>
               <p className="text-lg md:text-xl text-paper/55 leading-relaxed mb-10 max-w-xl">
-                Najpierw naprawiam pomiar i atrybucję, potem prowadzę wzrost w 2-tygodniowych sprintach eksperymentów. Z liczbami pod decyzje zarządu — zamiast raportów o kliknięciach.
+                Wchodzę jako zewnętrzny Head of Digital. Najpierw naprawiam pomiar — bo większość firm decyduje na niekompletnych danych. Potem prowadzę eksperymenty wzrostowe w 2-tygodniowych sprintach: skaluję to, co zarabia, wycinam to, co… tylko kosztuje.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-14">
                 <a
@@ -451,7 +452,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <p className="mt-6 pt-5 border-t-2 border-dashed border-ink/15 text-sm text-ink">
-                  <span className="font-semibold">Nie masz specjalistów?</span> Wpuszczam sprawdzonych — moich.
+                  <span className="font-semibold">Nie masz specjalistów?</span> Wpuszczam swoich — sprawdzonych na wcześniejszych projektach.
                 </p>
               </div>
             </div>
@@ -565,7 +566,7 @@ export default function Home() {
             {/* Anchor */}
             <div className="max-w-2xl mx-auto mb-12 sticker rounded-2xl bg-yellow/20 p-5 sm:p-6 text-center">
               <p className="text-sm sm:text-[15px] text-ink leading-relaxed">
-                <span className="font-semibold">Etatowy Head of Digital to 20–28 tys. zł miesięcznie</span> plus ZUS, rekrutacja i miesiące wdrożenia. Tu masz to samo doświadczenie — od pierwszego tygodnia i bez kosztu etatu.
+                <span className="font-semibold">Etatowy Head of Digital kosztuje 20–28 tys. zł miesięcznie</span> plus rekrutacja i ZUS. Poniżej dostajesz to samo doświadczenie w modelu, który możesz wyłączyć.
               </p>
             </div>
 
@@ -612,7 +613,7 @@ export default function Home() {
               ))}
             </div>
             <p className="text-center text-xs text-muted mt-8 max-w-2xl mx-auto">
-              Wyjście możliwe po pierwszym miesiącu. Budżety mediowe (zwykle 3–10 tys. zł/mc) rozliczasz osobno, bezpośrednio z platformami.
+              Minimum 3 miesiące, wyjście po 1. miesiącu bez kar. Ceny nie obejmują budżetów reklamowych ani pracy specjalistów (orientacyjnie 3–10 tys. zł/mc zależnie od zakresu).
             </p>
           </div>
         </section>
@@ -721,10 +722,10 @@ export default function Home() {
             <div>
               <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">Kontakt</span>
               <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-paper mb-6 mt-4">
-                Napisz, z czym się mierzysz
+                Napisz, jakie pytanie o swój marketing zadajesz sobie najczęściej
               </h2>
               <p className="text-lg text-paper/55 leading-relaxed mb-10">
-                Opisz sytuację w kilku zdaniach. Odpowiadam w ciągu 48 godzin — konkretnie, z pierwszymi sugestiami.
+                Odpowiadam w 48 godzin — od razu ze wskazaniem, gdzie zacząłbym szukać odpowiedzi w Twoich danych.
               </p>
               <div className="space-y-5">
                 <a href="mailto:piotr@sobczyk.io" className="flex items-center gap-4 group">
