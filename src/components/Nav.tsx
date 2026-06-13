@@ -42,9 +42,9 @@ export default function Nav() {
   return (
     <>
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full px-5 py-2.5 ${barBg}`}
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full px-7 py-3 ${barBg}`}
       >
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-4">
           <a
             href="#"
             className={`font-display font-bold px-3 py-2 text-lg tracking-tight transition-colors ${logoColor}`}

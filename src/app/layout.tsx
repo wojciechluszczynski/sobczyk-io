@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Fraunces, DM_Sans, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import SmoothScroll from "@/components/SmoothScroll";
+import { getLandingPage } from "@/sanity/landingPage";
+import { urlForImage } from "@/sanity/image";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -26,37 +29,44 @@ const geistMono = Geist_Mono({
 // zanim piotrsobczyk.pl zostanie podpięta do DNS.
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://piotrsobczyk.pl";
 
-export const metadata: Metadata = {
-  title: "Piotr Sobczyk, zewnętrzny Head of Digital",
-  description:
-    "Zamieniam dane z Twojego marketingu w decyzje i wzrost. Naprawiam pomiar i atrybucję, a potem prowadzę wzrost w 2-tygodniowych sprintach eksperymentów, bez kosztu etatu.",
-  metadataBase: new URL(SITE_URL),
-  openGraph: {
-    title: "Piotr Sobczyk, zewnętrzny Head of Digital",
-    description:
-      "Dane → decyzje → wzrost. Zewnętrzny Head of Digital: naprawiam pomiar, ustalam priorytety na podstawie liczb i prowadzę wzrost w sprintach.",
-    url: SITE_URL,
-    siteName: "Piotr Sobczyk",
-    locale: "pl_PL",
-    type: "website",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Piotr Sobczyk, zewnętrzny Head of Digital",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Piotr Sobczyk, zewnętrzny Head of Digital",
-    description:
-      "Dane → decyzje → wzrost. Zewnętrzny Head of Digital dla firm B2B i SaaS.",
-  },
-  robots: { index: true, follow: true },
-  alternates: { canonical: SITE_URL },
-};
+const DEFAULT_TITLE = "Piotr Sobczyk, zewnętrzny Head of Digital";
+const DEFAULT_DESCRIPTION =
+  "Zamieniam dane z Twojego marketingu w decyzje i wzrost. Naprawiam pomiar i atrybucję, a potem prowadzę wzrost w 2-tygodniowych sprintach eksperymentów, bez kosztu etatu.";
+
+// SEO meta is editable in /studio (group "SEO / metadane"). Until a Sanity
+// project is connected — or until an editor fills the fields — the defaults
+// above are used, so the existing meta never breaks.
+export async function generateMetadata(): Promise<Metadata> {
+  const sanity = await getLandingPage();
+  const title = sanity?.seoTitle ?? DEFAULT_TITLE;
+  const description = sanity?.seoDescription ?? DEFAULT_DESCRIPTION;
+  const ogImage =
+    urlForImage(sanity?.seoOgImage)?.width(1200).height(630).fit("crop").url() ??
+    "/og-image.jpg";
+
+  return {
+    title,
+    description,
+    metadataBase: new URL(SITE_URL),
+    openGraph: {
+      title,
+      description,
+      url: SITE_URL,
+      siteName: "Piotr Sobczyk",
+      locale: "pl_PL",
+      type: "website",
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+    robots: { index: true, follow: true },
+    alternates: { canonical: SITE_URL },
+  };
+}
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -164,6 +174,7 @@ export default function RootLayout({
       <body className="min-h-screen antialiased">
         <SmoothScroll />
         {children}
+        <Analytics />
       </body>
     </html>
   );

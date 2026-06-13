@@ -1,4 +1,6 @@
 import { client } from "./client";
+import type { SanityImageSource } from "@sanity/image-url";
+import type { IconName } from "./iconCatalog";
 
 // Shape of the editable landing-page document.
 // Every field is optional — the page merges with built-in defaults via `??`,
@@ -9,6 +11,7 @@ export type LandingPageData = {
   heroHeadlineHighlight?: string;
   heroHeadlinePost?: string;
   heroLead?: string;
+  heroImage?: SanityImageSource & { alt?: string };
   heroCtaPrimary?: string;
   heroCtaSecondary?: string;
   stats?: { num?: string; label?: string }[];
@@ -20,13 +23,13 @@ export type LandingPageData = {
   audienceKicker?: string;
   audienceTitle?: string;
   audienceLead?: string;
-  audienceItems?: { title?: string; text?: string }[];
+  audienceItems?: { title?: string; text?: string; icon?: IconName }[];
 
   scopeKicker?: string;
   scopeTitle?: string;
   scopeLead?: string;
   ownerTitle?: string;
-  ownerItems?: string[];
+  ownerItems?: { text?: string; icon?: IconName }[];
   specialistTitle?: string;
   specialistItems?: string[];
   specialistNoteStrong?: string;
@@ -35,7 +38,7 @@ export type LandingPageData = {
   processKicker?: string;
   processTitle?: string;
   processLead?: string;
-  processSteps?: { title?: string; text?: string }[];
+  processSteps?: { title?: string; text?: string; icon?: IconName }[];
 
   timelineKicker?: string;
   timelineTitle?: string;
@@ -72,6 +75,10 @@ export type LandingPageData = {
   contactEmail?: string;
   contactLinkedinUrl?: string;
   contactLinkedinLabel?: string;
+
+  seoTitle?: string;
+  seoDescription?: string;
+  seoOgImage?: SanityImageSource;
 };
 
 const LANDING_QUERY = `*[_type == "landingPage" && _id == "landingPage"][0]`;

@@ -2,7 +2,10 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import ContactForm from "@/components/ContactForm";
 import ScrollReveal from "@/components/ScrollReveal";
+import Icon from "@/components/Icon";
 import { getLandingPage } from "@/sanity/landingPage";
+import { urlForImage } from "@/sanity/image";
+import type { IconName } from "@/sanity/iconCatalog";
 
 // Returns the Sanity array when it's a non-empty list, otherwise the default.
 // Prevents a partially-filled CMS array from ghosting out the built-in content.
@@ -221,22 +224,39 @@ export default async function Home() {
   }));
   const audience = defaultAudience.map((d, i) => {
     const s = sanity?.audienceItems?.[i];
-    return { icon: d.icon, title: s?.title ?? d.title, text: s?.text ?? d.text };
+    return {
+      iconPath: d.icon,
+      iconName: (s?.icon ?? null) as IconName | null,
+      title: s?.title ?? d.title,
+      text: s?.text ?? d.text,
+    };
   });
-  const ownerItems = defaultOwnerItems.map((d, i) => ({
-    icon: d.icon,
-    text: sanity?.ownerItems?.[i] ?? d.text,
-  }));
+  const ownerItems = defaultOwnerItems.map((d, i) => {
+    const s = sanity?.ownerItems?.[i];
+    return {
+      iconPath: d.icon,
+      iconName: (s?.icon ?? null) as IconName | null,
+      text: s?.text ?? d.text,
+    };
+  });
   const specialistItems = pickArray(sanity?.specialistItems, defaultSpecialistItems);
   const processSteps = defaultProcessSteps.map((d, i) => {
     const s = sanity?.processSteps?.[i];
     return {
       step: d.step,
-      icon: d.icon,
+      iconPath: d.icon,
+      iconName: (s?.icon ?? null) as IconName | null,
       title: s?.title ?? d.title,
       text: s?.text ?? d.text,
     };
   });
+
+  // Hero portrait: use the editor's image (URL from Sanity CDN) when present,
+  // otherwise fall back to the file shipped in /public.
+  const heroImageUrl =
+    urlForImage(sanity?.heroImage)?.width(600).height(600).fit("crop").url() ??
+    "/piotr-sobczyk.jpg";
+  const heroImageAlt = sanity?.heroImage?.alt ?? "Piotr Sobczyk";
   const timeline = defaultTimeline.map((d, i) => {
     const s = sanity?.timeline?.[i];
     return {
@@ -325,12 +345,13 @@ export default async function Home() {
                 <div className="absolute -inset-6 bg-yellow/15 rounded-3xl blur-2xl pointer-events-none" />
                 <div className="absolute -inset-1 bg-yellow rounded-2xl rotate-2" aria-hidden="true" />
                 <Image
-                  src="/piotr-sobczyk.jpg"
-                  alt="Piotr Sobczyk"
+                  src={heroImageUrl}
+                  alt={heroImageAlt}
                   width={600}
                   height={600}
-                  className="relative rounded-2xl border-2 border-ink grayscale contrast-110 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover"
+                  className="relative rounded-2xl border-2 border-ink w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover"
                   priority
+                  unoptimized={heroImageUrl.startsWith("http")}
                 />
                 {/* Floating card: role */}
                 <div className="absolute -top-4 -right-4 sm:-right-8 bg-paper rounded-xl px-4 py-2.5 border-2 border-ink shadow-[3px_3px_0_0_#ffe01b]">
@@ -419,9 +440,7 @@ export default async function Home() {
               {audience.map((item) => (
                 <div key={item.title} className="sticker sticker-hover p-6 md:p-8 rounded-2xl bg-white">
                   <div className="w-11 h-11 rounded-xl bg-yellow border-2 border-ink text-ink flex items-center justify-center mb-5">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                    </svg>
+                    <Icon name={item.iconName} fallback={item.iconPath} className="w-5 h-5" />
                   </div>
                   <h3 className="font-display text-lg font-semibold text-ink mb-2 leading-snug">{item.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{item.text}</p>
@@ -459,9 +478,7 @@ export default async function Home() {
                 <ul className="space-y-3.5">
                   {ownerItems.map((item) => (
                     <li key={item.text} className="flex items-center gap-3">
-                      <svg className="w-4 h-4 text-ink shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                      </svg>
+                      <Icon name={item.iconName} fallback={item.iconPath} className="w-4 h-4 text-ink shrink-0" strokeWidth={2} />
                       <span className="text-sm text-ink">{item.text}</span>
                     </li>
                   ))}
@@ -513,9 +530,7 @@ export default async function Home() {
                 <div key={item.step} className="relative group">
                   <div className="sticker sticker-hover relative p-5 rounded-2xl bg-white h-full">
                     <div className="w-9 h-9 rounded-lg bg-yellow border-2 border-ink flex items-center justify-center mb-3">
-                      <svg className="w-4 h-4 text-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                      </svg>
+                      <Icon name={item.iconName} fallback={item.iconPath} className="w-4 h-4 text-ink" />
                     </div>
                     <span className="font-display text-lg font-bold text-ink/25 block mb-1">{item.step}</span>
                     <h3 className="font-display text-base font-semibold text-ink mb-1.5 leading-snug">{item.title}</h3>
