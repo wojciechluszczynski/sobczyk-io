@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const links = [
   { label: "Oferta", href: "#scope" },
-  { label: "Proces", href: "#process" },
+  { label: "Jak pracuję", href: "#process" },
   { label: "Cennik", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -31,14 +31,14 @@ export default function Nav() {
       <nav
         className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full px-2 py-2 ${
           scrolled
-            ? "bg-white/80 shadow-lg shadow-dark/5 border border-line/60 backdrop-blur-xl"
-            : "bg-white/50 border border-line/30 backdrop-blur-md"
+            ? "bg-paper/90 shadow-[3px_3px_0_0_#241c15] border-2 border-ink backdrop-blur-xl"
+            : "bg-paper/60 border-2 border-ink/15 backdrop-blur-md"
         }`}
       >
         <div className="flex items-center gap-1">
           <a
             href="#"
-            className="font-display font-bold text-dark px-4 py-2 text-sm tracking-tight"
+            className="font-display font-bold text-ink px-4 py-2 text-sm tracking-tight"
           >
             PS
           </a>
@@ -48,7 +48,7 @@ export default function Nav() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted hover:text-dark transition-colors px-3 py-2 rounded-full hover:bg-dark/5"
+                className="text-sm text-muted hover:text-ink transition-colors px-3 py-2 rounded-full hover:bg-ink/5"
               >
                 {link.label}
               </a>
@@ -57,7 +57,7 @@ export default function Nav() {
 
           <a
             href="#contact"
-            className="hidden md:inline-flex bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-dark transition-colors ml-1"
+            className="hidden md:inline-flex bg-yellow text-ink text-sm font-semibold px-5 py-2 rounded-full border-2 border-ink hover:bg-yellow-dark transition-colors ml-1"
           >
             Kontakt
           </a>
@@ -90,14 +90,14 @@ export default function Nav() {
       </nav>
 
       {open && (
-        <div className="fixed inset-0 z-40 bg-white/95 backdrop-blur-2xl">
+        <div className="fixed inset-0 z-40 bg-paper/97 backdrop-blur-2xl">
           <div className="h-full flex flex-col items-center justify-center gap-8">
             {links.map((link, i) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-3xl font-display font-semibold text-dark hover:text-accent transition-colors"
+                className="text-3xl font-display font-semibold text-ink hover:text-yellow-dark transition-colors"
                 style={{
                   animationDelay: `${i * 75}ms`,
                 }}
@@ -108,7 +108,7 @@ export default function Nav() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-4 bg-accent text-white text-lg font-medium px-8 py-3.5 rounded-full hover:bg-accent-dark transition-colors"
+              className="mt-4 bg-yellow text-ink text-lg font-semibold px-8 py-3.5 rounded-full border-2 border-ink hover:bg-yellow-dark transition-colors"
             >
               Kontakt
             </a>

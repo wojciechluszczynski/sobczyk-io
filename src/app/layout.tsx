@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, DM_Sans, Geist_Mono } from "next/font/google";
+import { Fraunces, DM_Sans, Geist_Mono } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin", "latin-ext"],
   display: "swap",
 });
@@ -22,15 +22,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Piotr Sobczyk — Full Stack Digital Manager",
+  title: "Piotr Sobczyk — zewnętrzny Head of Digital",
   description:
-    "Zewnętrzny Digital Marketing Manager dla firm, które potrzebują strategii, koordynacji, KPI i raportowania bez zatrudniania managera na etat.",
-  metadataBase: new URL("https://sobczyk.io"),
+    "Zamieniam dane z Twojego marketingu w decyzje i wzrost. Naprawiam pomiar i atrybucję, a potem prowadzę wzrost w 2-tygodniowych sprintach eksperymentów — bez kosztu etatu.",
+  metadataBase: new URL("https://piotrsobczyk.pl"),
   openGraph: {
-    title: "Piotr Sobczyk — Full Stack Digital Manager",
+    title: "Piotr Sobczyk — zewnętrzny Head of Digital",
     description:
-      "Strategia, koordynacja i raportowanie digital marketingu dla firm B2B i SaaS.",
-    url: "https://sobczyk.io",
+      "Dane → decyzje → wzrost. Zewnętrzny Head of Digital: naprawiam pomiar, ustalam priorytety na podstawie liczb i prowadzę wzrost w sprintach.",
+    url: "https://piotrsobczyk.pl",
     siteName: "Piotr Sobczyk",
     locale: "pl_PL",
     type: "website",
@@ -39,18 +39,18 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Piotr Sobczyk — Full Stack Digital Manager",
+        alt: "Piotr Sobczyk — zewnętrzny Head of Digital",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Piotr Sobczyk — Full Stack Digital Manager",
+    title: "Piotr Sobczyk — zewnętrzny Head of Digital",
     description:
-      "Zewnętrzny Digital Marketing Manager dla firm B2B i SaaS.",
+      "Dane → decyzje → wzrost. Zewnętrzny Head of Digital dla firm B2B i SaaS.",
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://sobczyk.io" },
+  alternates: { canonical: "https://piotrsobczyk.pl" },
 };
 
 const jsonLd = {
@@ -59,54 +59,56 @@ const jsonLd = {
     {
       "@type": "Person",
       name: "Piotr Sobczyk",
-      url: "https://sobczyk.io",
+      url: "https://piotrsobczyk.pl",
       email: "piotr@sobczyk.io",
-      jobTitle: "Full Stack Digital Manager",
+      jobTitle: "Head of Digital Marketing",
       sameAs: ["https://www.linkedin.com/in/piotrsobczyk/"],
       knowsAbout: [
         "Digital Marketing",
+        "Google Analytics 4",
+        "Atrybucja marketingowa",
+        "Eksperymenty wzrostowe",
         "PPC",
         "SEO",
-        "Google Analytics",
         "E-commerce",
         "Marketing Strategy",
       ],
     },
     {
       "@type": "ProfessionalService",
-      name: "Piotr Sobczyk — Digital Marketing Management",
-      url: "https://sobczyk.io",
+      name: "Piotr Sobczyk — zewnętrzny Head of Digital",
+      url: "https://piotrsobczyk.pl",
       description:
-        "Zewnętrzny Digital Marketing Manager dla firm B2B i SaaS.",
+        "Zewnętrzny Head of Digital dla firm B2B i SaaS. Naprawiam pomiar i atrybucję, a potem prowadzę wzrost w 2-tygodniowych sprintach eksperymentów.",
       provider: { "@type": "Person", name: "Piotr Sobczyk" },
       areaServed: "PL",
-      priceRange: "6000–11000 PLN/miesiąc",
+      priceRange: "8500–12500 PLN",
     },
     {
       "@type": "FAQPage",
       mainEntity: [
         {
           "@type": "Question",
-          name: "Czy mogę dzwonić w dowolnym momencie?",
+          name: "Czym się różnisz od koordynatora marketingu?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Współpraca opiera się na ustalonym rytmie spotkań i komunikacji asynchronicznej. Dzięki temu decyzje są przemyślane, a nie podejmowane w trybie ciągłego gaszenia pożarów.",
+            text: "Koordynator pilnuje, żeby zadania się działy. Ja zaczynam od danych: naprawiam pomiar, ustalam co realnie napędza wynik i prowadzę wzrost eksperymentami. Odpowiadam za liczby, nie za odhaczanie zadań.",
           },
         },
         {
           "@type": "Question",
-          name: "Czy realizujesz działania operacyjne?",
+          name: "Mam już agencję — po co mi jeszcze Ty?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Nie jestem agencją ani wykonawcą operacyjnym. Moja rola to zarządzanie, koordynacja, priorytetyzacja i kontrola jakości działań realizowanych przez zespół klienta lub specjalistów.",
+            text: "Agencja wykonuje. Ja patrzę na całość, rozliczam ją z wyników i decyduję, gdzie iść z budżetem. Często jestem osobą, której brakuje między zarządem a agencją.",
           },
         },
         {
           "@type": "Question",
-          name: "Co oznacza koordynacja działań marketingowych?",
+          name: "Czy mogę dzwonić, kiedy chcę?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Ustalanie priorytetów, briefowanie zespołów, weryfikacja realizacji, spójność komunikacji oraz pilnowanie zgodności działań ze strategią i celami biznesowymi.",
+            text: "Pracujemy w ustalonym rytmie: sprinty co 2 tygodnie i komunikacja asynchroniczna. Dzięki temu decyzje są oparte na danych, a nie na gaszeniu pożarów.",
           },
         },
         {
@@ -114,15 +116,15 @@ const jsonLd = {
           name: "Jaki jest minimalny okres współpracy?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Minimalny okres stałej współpracy to 3 miesiące.",
+            text: "Pakiety stałe ruszają bez długich zobowiązań — wyjście jest możliwe po pierwszym miesiącu. Audyt i strategia to jednorazowe zlecenie.",
           },
         },
         {
           "@type": "Question",
-          name: "Czy mogę rozpocząć bez wcześniejszej strategii?",
+          name: "Nie mam specjalistów ani agencji. Co wtedy?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Tak, jeśli firma prowadzi już działania marketingowe. W praktyce audyt i strategia przyspieszają efekty oraz ograniczają kosztowne błędy decyzyjne.",
+            text: "Wpuszczam sprawdzonych ludzi, z którymi pracuję. Ty masz jeden punkt kontaktu i jedną osobę odpowiedzialną za wynik.",
           },
         },
         {
@@ -130,7 +132,7 @@ const jsonLd = {
           name: "Dla kogo ta współpraca nie jest odpowiednia?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Dla firm szukających wyłącznie wykonawcy, oczekujących stałej dostępności telefonicznej lub niegotowych do decyzji strategicznych.",
+            text: "Dla firm, które chcą tylko wykonawcy do zadań, nie chcą mierzyć efektów albo nie są gotowe podejmować decyzji na podstawie danych.",
           },
         },
       ],
@@ -146,7 +148,7 @@ export default function RootLayout({
   return (
     <html
       lang="pl"
-      className={`${spaceGrotesk.variable} ${dmSans.variable} ${geistMono.variable}`}
+      className={`${fraunces.variable} ${dmSans.variable} ${geistMono.variable}`}
     >
       <head>
         <script

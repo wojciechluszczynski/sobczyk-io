@@ -1,34 +1,69 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-dark: #111827;
-  --color-muted: #6b7280;
-  --color-subtle: #9ca3af;
-  --color-accent: #2563eb;
-  --color-accent-dark: #1d4ed8;
-  --color-accent-light: #eff6ff;
-  --color-surface: #f8f9fb;
-  --color-warm: #faf9f7;
-  --color-line: #e5e7eb;
-  --color-background: #ffffff;
+  /* Mailchimp-style palette */
+  --color-ink: #241c15;
+  --color-yellow: #ffe01b;
+  --color-yellow-dark: #e8c800;
+  --color-paper: #fffdf7;
+  --color-cream: #f7f4ec;
+
+  /* Semantic tokens (kept for existing utility usage) */
+  --color-dark: #241c15;
+  --color-muted: #6b6253;
+  --color-subtle: #9a9180;
+  --color-accent: #ffe01b;
+  --color-accent-dark: #e8c800;
+  --color-accent-light: #fff6cc;
+  --color-surface: #f7f4ec;
+  --color-warm: #fbf8f0;
+  --color-line: #e4decf;
+  --color-background: #fffdf7;
 }
 
 body {
   font-family: var(--font-dm-sans), system-ui, sans-serif;
-  background: #ffffff;
-  color: #111827;
+  background: #fffdf7;
+  color: #241c15;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-family: var(--font-fraunces), Georgia, serif;
 }
 
 .font-display {
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-family: var(--font-fraunces), Georgia, serif;
 }
 
 .mono {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* Sticker cards — thick ink border + hard offset shadow */
+.sticker {
+  border: 2px solid var(--color-ink);
+  box-shadow: 4px 4px 0 0 var(--color-ink);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sticker-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--color-ink);
+}
+
+/* Sticker on dark sections — light offset shadow */
+.sticker-light {
+  border: 2px solid var(--color-ink);
+  box-shadow: 4px 4px 0 0 var(--color-yellow);
+}
+
+/* Yellow highlight chip for overlines */
+.chip {
+  display: inline-block;
+  background: var(--color-yellow);
+  color: var(--color-ink);
+  border: 2px solid var(--color-ink);
 }
 
 details summary::-webkit-details-marker {
@@ -92,7 +127,7 @@ details[open] summary .faq-icon {
 
 /* Dot grid pattern */
 .dots-pattern {
-  background-image: radial-gradient(circle, var(--color-line) 1px, transparent 1px);
+  background-image: radial-gradient(circle, var(--color-ink) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
