@@ -42,22 +42,22 @@ export default function Nav() {
   return (
     <>
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full px-3 py-2.5 ${barBg}`}
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full px-5 py-2.5 ${barBg}`}
       >
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2.5">
           <a
             href="#"
-            className={`font-display font-bold px-4 py-2 text-base tracking-tight transition-colors ${logoColor}`}
+            className={`font-display font-bold px-3 py-2 text-lg tracking-tight transition-colors ${logoColor}`}
           >
             PS<span className="text-yellow">.</span>
           </a>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-2">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors px-3.5 py-2 rounded-full ${linkColor}`}
+                className={`text-[15px] font-medium transition-colors px-4 py-2.5 rounded-full ${linkColor}`}
               >
                 {link.label}
               </a>
@@ -66,7 +66,7 @@ export default function Nav() {
 
           <a
             href="#contact"
-            className="hidden md:inline-flex bg-yellow text-ink text-sm font-semibold px-5 py-2.5 rounded-full border-2 border-ink hover:bg-yellow-dark transition-colors ml-1.5"
+            className="hidden md:inline-flex bg-yellow text-ink text-[15px] font-semibold px-6 py-2.5 rounded-full border-2 border-ink hover:bg-yellow-dark transition-colors ml-2"
           >
             Kontakt
           </a>

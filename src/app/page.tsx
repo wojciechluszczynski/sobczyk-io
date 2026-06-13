@@ -30,7 +30,7 @@ const audience = [
   },
   {
     title: "Każdy specjalista pokazuje, że „jego kanał działa”",
-    text: "SEO chwali pozycje, Ads chwali ROAS, social chwali zasięgi — a sprzedaż stoi. Patrzę na całość lejka i rozstrzygam na danych, kto naprawdę dowozi.",
+    text: "SEO chwali pozycje, Ads chwali ROAS, social chwali zasięgi, a sprzedaż stoi. Patrzę na całość lejka i rozstrzygam na danych, kto naprawdę dowozi.",
     icon: "M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z",
   },
   {
@@ -40,7 +40,7 @@ const audience = [
   },
   {
     title: "Etat Head of Digital to 20–28 tys.",
-    text: "Do tego rekrutacja i ZUS. Dostajesz to samo doświadczenie za ułamek kosztu — w modelu, z którego możesz wyjść po pierwszym miesiącu.",
+    text: "Do tego rekrutacja i ZUS. Dostajesz to samo doświadczenie za ułamek kosztu, w modelu, z którego możesz wyjść po pierwszym miesiącu.",
     icon: "M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z",
   },
 ];
@@ -56,7 +56,7 @@ const ownerItems = [
 
 const specialistItems = [
   "SEO",
-  "PPC — Google, Meta, LinkedIn Ads",
+  "PPC: Google, Meta, LinkedIn Ads",
   "social media",
   "content i copywriting",
   "video i grafika",
@@ -80,7 +80,7 @@ const processSteps = [
   {
     step: "03",
     title: "Strategia + dashboard zarządczy",
-    text: "Plan na 6–12 miesięcy, jedna metryka nadrzędna, KPI i budżety — plus dashboard live, w którym w każdej chwili widzisz stan marketingu, bez czekania na raport.",
+    text: "Plan na 6–12 miesięcy, jedna metryka nadrzędna, KPI i budżety, plus dashboard live, w którym w każdej chwili widzisz stan marketingu, bez czekania na raport.",
     icon: "M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z",
   },
   {
@@ -92,7 +92,7 @@ const processSteps = [
   {
     step: "05",
     title: "Raport miesięczny dla zarządu",
-    text: "Jedna strona: co urosło, co wyciąłem, co testuję dalej — w języku przychodu, nie kliknięć.",
+    text: "Jedna strona: co urosło, co wyciąłem, co testuję dalej, w języku przychodu, nie kliknięć.",
     icon: "M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z",
   },
 ];
@@ -120,7 +120,7 @@ const packages = [
     name: "Audyt digital + analityka + strategia",
     price: "8 500",
     period: "zł netto / jednorazowo",
-    description: "Audyt kampanii, SEO i lejka plus audyt pomiaru — i gotowa strategia z planem na 90 dni.",
+    description: "Audyt kampanii, SEO i lejka plus audyt pomiaru. Gotowa strategia z planem na 90 dni.",
     items: [
       "audyt kampanii, SEO i lejka",
       "audyt pomiaru: GA4, konwersje, atrybucja",
@@ -147,7 +147,7 @@ const packages = [
     highlighted: true,
   },
   {
-    name: "Head of Digital — Executive",
+    name: "Head of Digital Executive",
     price: "12 500",
     period: "zł netto / mc",
     description: "Pełna odpowiedzialność za digital, zsynchronizowana z decyzjami zarządu.",
@@ -194,12 +194,12 @@ const faq = [
   {
     question: "Czym różnisz się od „zewnętrznego marketera” czy koordynatora?",
     answer:
-      "Dwiema rzeczami. Po pierwsze: zanim cokolwiek zoptymalizuję, naprawiam pomiar — bez tego każda decyzja to zgadywanie. Po drugie: pracuję w sprintach eksperymentów, więc co dwa tygodnie zapada decyzja „skalujemy albo wycinamy”, a nie „działamy dalej”.",
+      "Dwiema rzeczami. Po pierwsze: zanim cokolwiek zoptymalizuję, naprawiam pomiar. Bez tego każda decyzja to zgadywanie. Po drugie: pracuję w sprintach eksperymentów, więc co dwa tygodnie zapada decyzja „skalujemy albo wycinamy”, a nie „działamy dalej”.",
   },
   {
     question: "Czy robisz kampanie, grafiki, treści?",
     answer:
-      "Nie. Odpowiadam za kierunek, pomiar i wynik. Wykonują specjaliści — Twoi albo moi podwykonawcy, których briefuję i rozliczam.",
+      "Nie. Odpowiadam za kierunek, pomiar i wynik. Wykonują specjaliści: Twoi albo moi podwykonawcy, których briefuję i rozliczam.",
   },
   {
     question: "Mam już agencję / specjalistów. Po co mi jeszcze Ty?",
@@ -209,12 +209,12 @@ const faq = [
   {
     question: "Czy mogę dzwonić w dowolnym momencie?",
     answer:
-      "Pracujemy w rytmie sprintów i komunikacji asynchronicznej. Stan marketingu widzisz w każdej chwili w dashboardzie — nie musisz dzwonić, żeby wiedzieć, co się dzieje. Ale wszystko jest kwestią dogadania.",
+      "Pracujemy w rytmie sprintów i komunikacji asynchronicznej. Stan marketingu widzisz w każdej chwili w dashboardzie, nie musisz dzwonić, żeby wiedzieć, co się dzieje. Ale wszystko jest kwestią dogadania.",
   },
   {
     question: "Jaki jest minimalny okres współpracy?",
     answer:
-      "3 miesiące — tyle trwa cykl: naprawa pomiaru, eksperymenty, skalowanie. Po pierwszym miesiącu możesz spokojnie wyjść bez konsekwencji.",
+      "3 miesiące, tyle trwa cykl: naprawa pomiaru, eksperymenty, skalowanie. Po pierwszym miesiącu możesz spokojnie wyjść bez konsekwencji.",
   },
   {
     question: "Dla kogo to NIE jest?",
@@ -255,7 +255,7 @@ export default function Home() {
                 w decyzje i wzrost.
               </h1>
               <p className="text-lg md:text-xl text-paper/55 leading-relaxed mb-10 max-w-xl">
-                Wchodzę jako zewnętrzny Head of Digital. Najpierw naprawiam pomiar — bo większość firm decyduje na niekompletnych danych. Potem prowadzę eksperymenty wzrostowe w 2-tygodniowych sprintach: skaluję to, co zarabia, wycinam to, co… tylko kosztuje.
+                Wchodzę jako zewnętrzny Head of Digital. Najpierw naprawiam pomiar, bo większość firm decyduje na niekompletnych danych. Potem prowadzę eksperymenty wzrostowe w 2-tygodniowych sprintach: skaluję to, co zarabia, wycinam to, co… tylko kosztuje.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-14">
                 <a
@@ -330,7 +330,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experience bar — logo placeholders */}
+      {/* Experience bar: logo placeholders */}
       <section className="py-10 bg-cream border-y-2 border-ink/10 overflow-hidden">
         <p className="mono text-[10px] tracking-[0.2em] uppercase text-muted text-center mb-6 px-5">
           Doświadczenie z firm i projektów
@@ -343,7 +343,7 @@ export default function Home() {
               <div
                 key={`${name}-${i}`}
                 className="mx-3 flex h-14 min-w-[150px] items-center justify-center rounded-xl border-2 border-ink/15 bg-paper px-6"
-                title="Logo — do podmiany"
+                title="Logo do podmiany"
               >
                 <span className="text-sm font-semibold text-ink/40 whitespace-nowrap">{name}</span>
               </div>
@@ -410,7 +410,7 @@ export default function Home() {
                 Jasny podział ról
               </h2>
               <p className="text-muted mt-3 max-w-xl mx-auto">
-                Ja odpowiadam za dane, kierunek i decyzje. Specjaliści — za wykonanie.
+                Ja odpowiadam za dane, kierunek i decyzje. Specjaliści odpowiadają za wykonanie.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
@@ -452,7 +452,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <p className="mt-6 pt-5 border-t-2 border-dashed border-ink/15 text-sm text-ink">
-                  <span className="font-semibold">Nie masz specjalistów?</span> Wpuszczam swoich — sprawdzonych na wcześniejszych projektach.
+                  <span className="font-semibold">Nie masz specjalistów?</span> Wpuszczam swoich, sprawdzonych na wcześniejszych projektach.
                 </p>
               </div>
             </div>
@@ -506,7 +506,7 @@ export default function Home() {
                 Co dzieje się od pierwszego dnia
               </h2>
               <p className="text-muted mt-3 max-w-xl mx-auto">
-                Konkretny plan na trzy pierwsze miesiące — bez „rozkręcania się” przez pół roku.
+                Konkretny plan na trzy pierwsze miesiące, bez „rozkręcania się” przez pół roku.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -725,7 +725,7 @@ export default function Home() {
                 Napisz, jakie pytanie o swój marketing zadajesz sobie najczęściej
               </h2>
               <p className="text-lg text-paper/55 leading-relaxed mb-10">
-                Odpowiadam w 48 godzin — od razu ze wskazaniem, gdzie zacząłbym szukać odpowiedzi w Twoich danych.
+                Odpowiadam w 48 godzin, od razu ze wskazaniem, gdzie zacząłbym szukać odpowiedzi w Twoich danych.
               </p>
               <div className="space-y-5">
                 <a href="mailto:piotr@sobczyk.io" className="flex items-center gap-4 group">

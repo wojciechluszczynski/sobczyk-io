@@ -22,17 +22,17 @@ const geistMono = Geist_Mono({
 });
 
 // Bazowy adres strony. Domyślnie produkcyjna domena (zgodnie z briefem),
-// ale można nadpisać przez env var — np. tymczasowy adres .vercel.app,
+// ale można nadpisać przez env var, np. tymczasowy adres .vercel.app,
 // zanim piotrsobczyk.pl zostanie podpięta do DNS.
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://piotrsobczyk.pl";
 
 export const metadata: Metadata = {
-  title: "Piotr Sobczyk — zewnętrzny Head of Digital",
+  title: "Piotr Sobczyk, zewnętrzny Head of Digital",
   description:
-    "Zamieniam dane z Twojego marketingu w decyzje i wzrost. Naprawiam pomiar i atrybucję, a potem prowadzę wzrost w 2-tygodniowych sprintach eksperymentów — bez kosztu etatu.",
+    "Zamieniam dane z Twojego marketingu w decyzje i wzrost. Naprawiam pomiar i atrybucję, a potem prowadzę wzrost w 2-tygodniowych sprintach eksperymentów, bez kosztu etatu.",
   metadataBase: new URL(SITE_URL),
   openGraph: {
-    title: "Piotr Sobczyk — zewnętrzny Head of Digital",
+    title: "Piotr Sobczyk, zewnętrzny Head of Digital",
     description:
       "Dane → decyzje → wzrost. Zewnętrzny Head of Digital: naprawiam pomiar, ustalam priorytety na podstawie liczb i prowadzę wzrost w sprintach.",
     url: SITE_URL,
@@ -44,13 +44,13 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Piotr Sobczyk — zewnętrzny Head of Digital",
+        alt: "Piotr Sobczyk, zewnętrzny Head of Digital",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Piotr Sobczyk — zewnętrzny Head of Digital",
+    title: "Piotr Sobczyk, zewnętrzny Head of Digital",
     description:
       "Dane → decyzje → wzrost. Zewnętrzny Head of Digital dla firm B2B i SaaS.",
   },
@@ -81,7 +81,7 @@ const jsonLd = {
     },
     {
       "@type": "ProfessionalService",
-      name: "Piotr Sobczyk — zewnętrzny Head of Digital",
+      name: "Piotr Sobczyk, zewnętrzny Head of Digital",
       url: SITE_URL,
       description:
         "Zewnętrzny Head of Digital dla firm B2B i SaaS. Naprawiam pomiar i atrybucję, a potem prowadzę wzrost w 2-tygodniowych sprintach eksperymentów.",
@@ -97,7 +97,7 @@ const jsonLd = {
           name: "Czym różnisz się od „zewnętrznego marketera” czy koordynatora?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Dwiema rzeczami. Po pierwsze: zanim cokolwiek zoptymalizuję, naprawiam pomiar — bez tego każda decyzja to zgadywanie. Po drugie: pracuję w sprintach eksperymentów, więc co dwa tygodnie zapada decyzja „skalujemy albo wycinamy”, a nie „działamy dalej”.",
+            text: "Dwiema rzeczami. Po pierwsze: zanim cokolwiek zoptymalizuję, naprawiam pomiar. Bez tego każda decyzja to zgadywanie. Po drugie: pracuję w sprintach eksperymentów, więc co dwa tygodnie zapada decyzja „skalujemy albo wycinamy”, a nie „działamy dalej”.",
           },
         },
         {
@@ -105,7 +105,7 @@ const jsonLd = {
           name: "Czy robisz kampanie, grafiki, treści?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Nie. Odpowiadam za kierunek, pomiar i wynik. Wykonują specjaliści — Twoi albo moi podwykonawcy, których briefuję i rozliczam.",
+            text: "Nie. Odpowiadam za kierunek, pomiar i wynik. Wykonują specjaliści: Twoi albo moi podwykonawcy, których briefuję i rozliczam.",
           },
         },
         {
@@ -121,7 +121,7 @@ const jsonLd = {
           name: "Czy mogę dzwonić w dowolnym momencie?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Pracujemy w rytmie sprintów i komunikacji asynchronicznej. Stan marketingu widzisz w każdej chwili w dashboardzie — nie musisz dzwonić, żeby wiedzieć, co się dzieje. Ale wszystko jest kwestią dogadania.",
+            text: "Pracujemy w rytmie sprintów i komunikacji asynchronicznej. Stan marketingu widzisz w każdej chwili w dashboardzie, nie musisz dzwonić, żeby wiedzieć, co się dzieje. Ale wszystko jest kwestią dogadania.",
           },
         },
         {
@@ -129,7 +129,7 @@ const jsonLd = {
           name: "Jaki jest minimalny okres współpracy?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "3 miesiące — tyle trwa cykl: naprawa pomiaru, eksperymenty, skalowanie. Po pierwszym miesiącu możesz spokojnie wyjść bez konsekwencji.",
+            text: "3 miesiące, tyle trwa cykl: naprawa pomiaru, eksperymenty, skalowanie. Po pierwszym miesiącu możesz spokojnie wyjść bez konsekwencji.",
           },
         },
         {
