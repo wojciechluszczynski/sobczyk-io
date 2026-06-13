@@ -21,16 +21,21 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+// Bazowy adres strony. Domyślnie produkcyjna domena (zgodnie z briefem),
+// ale można nadpisać przez env var — np. tymczasowy adres .vercel.app,
+// zanim piotrsobczyk.pl zostanie podpięta do DNS.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://piotrsobczyk.pl";
+
 export const metadata: Metadata = {
   title: "Piotr Sobczyk — zewnętrzny Head of Digital",
   description:
     "Zamieniam dane z Twojego marketingu w decyzje i wzrost. Naprawiam pomiar i atrybucję, a potem prowadzę wzrost w 2-tygodniowych sprintach eksperymentów — bez kosztu etatu.",
-  metadataBase: new URL("https://piotrsobczyk.pl"),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "Piotr Sobczyk — zewnętrzny Head of Digital",
     description:
       "Dane → decyzje → wzrost. Zewnętrzny Head of Digital: naprawiam pomiar, ustalam priorytety na podstawie liczb i prowadzę wzrost w sprintach.",
-    url: "https://piotrsobczyk.pl",
+    url: SITE_URL,
     siteName: "Piotr Sobczyk",
     locale: "pl_PL",
     type: "website",
@@ -50,7 +55,7 @@ export const metadata: Metadata = {
       "Dane → decyzje → wzrost. Zewnętrzny Head of Digital dla firm B2B i SaaS.",
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://piotrsobczyk.pl" },
+  alternates: { canonical: SITE_URL },
 };
 
 const jsonLd = {
@@ -59,7 +64,7 @@ const jsonLd = {
     {
       "@type": "Person",
       name: "Piotr Sobczyk",
-      url: "https://piotrsobczyk.pl",
+      url: SITE_URL,
       email: "piotr@sobczyk.io",
       jobTitle: "Head of Digital Marketing",
       sameAs: ["https://www.linkedin.com/in/piotrsobczyk/"],
@@ -77,7 +82,7 @@ const jsonLd = {
     {
       "@type": "ProfessionalService",
       name: "Piotr Sobczyk — zewnętrzny Head of Digital",
-      url: "https://piotrsobczyk.pl",
+      url: SITE_URL,
       description:
         "Zewnętrzny Head of Digital dla firm B2B i SaaS. Naprawiam pomiar i atrybucję, a potem prowadzę wzrost w 2-tygodniowych sprintach eksperymentów.",
       provider: { "@type": "Person", name: "Piotr Sobczyk" },
