@@ -163,33 +163,6 @@ const packages = [
   },
 ];
 
-const publications = [
-  {
-    title: "UX i PPC. Czyli dlaczego landing ma ogromne znaczenie?",
-    source: "Nowa Sprzedaż",
-    href: "https://www.nowa-sprzedaz.pl/autor/piotr-sobczyk",
-    type: "article" as const,
-  },
-  {
-    title: "Najczęstsze błędy w kampaniach PPC dla e-commerce",
-    source: "E-commerce w Praktyce",
-    href: "https://ewp.pl/najczestsze-bledy-w-kampaniach-ppc-dla-e-commerce/",
-    type: "article" as const,
-  },
-  {
-    title: "Platformy e-commerce: jak wykorzystać ich potencjał",
-    source: "E-commerce w Praktyce",
-    href: "https://ewp.pl/platformy-e-commerce-w-pelni-wykorzystaj-ich-potencjal-8-porad-dla-poczatkujacych-e-sprzedawcow/",
-    type: "article" as const,
-  },
-  {
-    title: "La Casa De Performance",
-    source: "Digitalowa Zajawka 360",
-    href: "https://open.spotify.com/episode/5bwrHzMfw1j7TVf9AXqovK",
-    type: "podcast" as const,
-  },
-];
-
 const faq = [
   {
     question: "Czym różnisz się od „zewnętrznego marketera” czy koordynatora?",
@@ -615,68 +588,6 @@ export default function Home() {
             <p className="text-center text-xs text-muted mt-8 max-w-2xl mx-auto">
               Minimum 3 miesiące, wyjście po 1. miesiącu bez kar. Ceny nie obejmują budżetów reklamowych ani pracy specjalistów (orientacyjnie 3–10 tys. zł/mc zależnie od zakresu).
             </p>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* Publications */}
-      <ScrollReveal>
-        <section id="publications" className="relative py-20 md:py-28 px-5 sm:px-6 bg-cream border-y-2 border-ink/10 overflow-hidden">
-          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-yellow/[0.07] rounded-full blur-3xl -translate-y-1/3 -translate-x-1/4 pointer-events-none float-slower" />
-          <div className="max-w-6xl mx-auto relative">
-            <div className="text-center mb-14">
-              <span className="chip mono text-[11px] font-semibold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4">Publikacje</span>
-              <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink mt-4">
-                Piszę i rozmawiam o marketingu
-              </h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              {publications.map((pub) => (
-                <a
-                  key={pub.title}
-                  href={pub.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="sticker sticker-hover group p-6 rounded-2xl bg-white flex gap-4"
-                >
-                  <div className="w-11 h-11 rounded-xl border-2 border-ink shrink-0 flex items-center justify-center bg-yellow text-ink">
-                    {pub.type === "podcast" ? (
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
-                      </svg>
-                    ) : (
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                      </svg>
-                    )}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="mono text-[10px] tracking-[0.15em] uppercase text-muted mb-1.5">
-                      {pub.source}
-                      {pub.type === "podcast" && (
-                        <span className="ml-2 text-ink bg-yellow px-1.5 py-0.5 rounded text-[10px] normal-case tracking-normal">podcast</span>
-                      )}
-                    </p>
-                    <h3 className="font-display text-base font-semibold text-ink group-hover:underline decoration-yellow decoration-2 underline-offset-2 leading-snug">
-                      {pub.title}
-                    </h3>
-                  </div>
-                </a>
-              ))}
-            </div>
-            <div className="text-center mt-8">
-              <a
-                href="https://www.getresponse.com/blog/authors/piotr-sobczyk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-ink font-semibold transition-colors inline-flex items-center gap-1 underline decoration-yellow decoration-2 underline-offset-4 hover:decoration-ink"
-              >
-                Artykuły w GetResponse Blog
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </div>
           </div>
         </section>
       </ScrollReveal>
