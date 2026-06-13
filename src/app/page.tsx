@@ -249,7 +249,7 @@ export default function Home() {
               <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.75rem] font-semibold tracking-tight text-paper leading-[1.06] mb-6">
                 Twój marketing generuje dane.{" "}
                 <span className="relative inline-block text-ink">
-                  <span className="absolute inset-x-[-0.15em] inset-y-[0.08em] bg-yellow -rotate-1 rounded-sm" aria-hidden="true" />
+                  <span className="absolute inset-x-[-0.15em] top-[0.08em] bottom-[-0.06em] bg-yellow -rotate-1 rounded-sm" aria-hidden="true" />
                   <span className="relative">Ja zamieniam je</span>
                 </span>{" "}
                 w decyzje i wzrost.
