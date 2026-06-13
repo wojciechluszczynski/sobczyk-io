@@ -267,8 +267,8 @@ export default function Home() {
                 <Image
                   src="/piotr-sobczyk.jpg"
                   alt="Piotr Sobczyk"
-                  width={300}
-                  height={300}
+                  width={600}
+                  height={600}
                   className="relative rounded-2xl border-2 border-ink grayscale contrast-110 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover"
                   priority
                 />
