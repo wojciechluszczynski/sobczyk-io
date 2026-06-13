@@ -26,29 +26,38 @@ export default function Nav() {
     };
   }, [open]);
 
+  // Two states: over the dark hero (top) the pill is dark glass with light
+  // text so it stays readable; once scrolled into the light sections it
+  // becomes the light "sticker" pill with dark text.
+  const onLight = scrolled || open;
+  const barBg = onLight
+    ? "bg-paper/95 shadow-[3px_3px_0_0_#241c15] border-2 border-ink backdrop-blur-xl"
+    : "bg-ink/40 border border-paper/25 backdrop-blur-xl shadow-lg shadow-ink/20";
+  const logoColor = onLight ? "text-ink" : "text-paper";
+  const linkColor = onLight
+    ? "text-muted hover:text-ink hover:bg-ink/5"
+    : "text-paper/80 hover:text-paper hover:bg-paper/10";
+  const barColor = onLight ? "bg-ink" : "bg-paper";
+
   return (
     <>
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full px-2 py-2 ${
-          scrolled
-            ? "bg-paper/90 shadow-[3px_3px_0_0_#241c15] border-2 border-ink backdrop-blur-xl"
-            : "bg-paper/60 border-2 border-ink/15 backdrop-blur-md"
-        }`}
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full px-3 py-2.5 ${barBg}`}
       >
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1.5">
           <a
             href="#"
-            className="font-display font-bold text-ink px-4 py-2 text-sm tracking-tight"
+            className={`font-display font-bold px-4 py-2 text-base tracking-tight transition-colors ${logoColor}`}
           >
-            PS
+            PS<span className="text-yellow">.</span>
           </a>
 
-          <div className="hidden md:flex items-center gap-0.5">
+          <div className="hidden md:flex items-center gap-1">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted hover:text-ink transition-colors px-3 py-2 rounded-full hover:bg-ink/5"
+                className={`text-sm font-medium transition-colors px-3.5 py-2 rounded-full ${linkColor}`}
               >
                 {link.label}
               </a>
@@ -57,30 +66,32 @@ export default function Nav() {
 
           <a
             href="#contact"
-            className="hidden md:inline-flex bg-yellow text-ink text-sm font-semibold px-5 py-2 rounded-full border-2 border-ink hover:bg-yellow-dark transition-colors ml-1"
+            className="hidden md:inline-flex bg-yellow text-ink text-sm font-semibold px-5 py-2.5 rounded-full border-2 border-ink hover:bg-yellow-dark transition-colors ml-1.5"
           >
             Kontakt
           </a>
 
           <button
-            className="md:hidden p-2 ml-1 rounded-full hover:bg-dark/5 transition-colors"
+            className={`md:hidden p-2.5 ml-1 rounded-full transition-colors ${
+              onLight ? "hover:bg-ink/5" : "hover:bg-paper/10"
+            }`}
             onClick={() => setOpen(!open)}
             aria-label={open ? "Zamknij menu" : "Otwórz menu"}
             aria-expanded={open}
           >
             <div className="w-5 h-4 relative flex flex-col justify-between">
               <span
-                className={`block h-0.5 w-5 bg-dark rounded-full transition-all duration-300 origin-center ${
+                className={`block h-0.5 w-5 rounded-full transition-all duration-300 origin-center ${barColor} ${
                   open ? "rotate-45 translate-y-[7px]" : ""
                 }`}
               />
               <span
-                className={`block h-0.5 w-5 bg-dark rounded-full transition-all duration-300 ${
+                className={`block h-0.5 w-5 rounded-full transition-all duration-300 ${barColor} ${
                   open ? "opacity-0 scale-0" : ""
                 }`}
               />
               <span
-                className={`block h-0.5 w-5 bg-dark rounded-full transition-all duration-300 origin-center ${
+                className={`block h-0.5 w-5 rounded-full transition-all duration-300 origin-center ${barColor} ${
                   open ? "-rotate-45 -translate-y-[7px]" : ""
                 }`}
               />
