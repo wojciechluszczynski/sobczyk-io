@@ -33,9 +33,9 @@ const DEFAULT_TITLE = "Piotr Sobczyk, zewnętrzny Head of Digital";
 const DEFAULT_DESCRIPTION =
   "Zamieniam dane z Twojego marketingu w decyzje i wzrost. Naprawiam pomiar i atrybucję, a potem prowadzę wzrost w 2-tygodniowych sprintach eksperymentów, bez kosztu etatu.";
 
-// SEO meta is editable in /studio (group "SEO / metadane"). Until a Sanity
-// project is connected — or until an editor fills the fields — the defaults
-// above are used, so the existing meta never breaks.
+// SEO meta is editable in the Sanity-hosted Studio (group "SEO / metadane").
+// Until an editor fills the fields the defaults above are used, so the
+// existing meta never breaks.
 export async function generateMetadata(): Promise<Metadata> {
   const sanity = await getLandingPage();
   const title = sanity?.seoTitle ?? DEFAULT_TITLE;
