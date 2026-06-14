@@ -15,9 +15,18 @@ type Props = {
   alt?: string;
 };
 
+// Local format cascade: SVG (best), PNG (Wikipedia / press kits often serve PNG),
+// WebP (modern raster). When one 404s, onError advances to the next; the chip
+// fallback renders only after all three miss.
+const LOCAL_EXTS = ["svg", "png", "webp"] as const;
+
 export default function CompanyLogo({ name, slug, sanityUrl, alt }: Props) {
-  const initialSrc = sanityUrl || (slug ? `/logos/${slug}.svg` : null);
-  const [src, setSrc] = useState<string | null>(initialSrc);
+  const sources: string[] = [];
+  if (sanityUrl) sources.push(sanityUrl);
+  if (slug) LOCAL_EXTS.forEach((ext) => sources.push(`/logos/${slug}.${ext}`));
+
+  const [idx, setIdx] = useState(0);
+  const src = sources[idx] ?? null;
 
   if (!src) {
     // Chip-style fallback: looks intentional even without an asset, instead of
@@ -37,7 +46,7 @@ export default function CompanyLogo({ name, slug, sanityUrl, alt }: Props) {
     <img
       src={src}
       alt={alt || name}
-      onError={() => setSrc(null)}
+      onError={() => setIdx((i) => i + 1)}
       className="h-6 w-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all"
     />
   );
