@@ -166,6 +166,14 @@ export default function RootLayout({
       className={`${fraunces.variable} ${dmSans.variable} ${geistMono.variable}`}
     >
       <head>
+        {/* Preconnect to Sanity CDN when configured — shaves ~150ms off first
+            image byte once the editor uploads a real portrait / company logo. */}
+        {process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ? (
+          <>
+            <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="" />
+            <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+          </>
+        ) : null}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

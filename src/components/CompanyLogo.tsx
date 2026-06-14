@@ -20,7 +20,13 @@ export default function CompanyLogo({ name, slug, sanityUrl, alt }: Props) {
   const [src, setSrc] = useState<string | null>(initialSrc);
 
   if (!src) {
-    return <span className="text-sm font-medium text-muted/60">{name}</span>;
+    // Chip-style fallback: looks intentional even without an asset, instead of
+    // a stray label on the dark strip. Matches the rest of the page's pill UI.
+    return (
+      <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-muted/25 text-xs font-medium tracking-[0.08em] uppercase text-muted/70 whitespace-nowrap">
+        {name}
+      </span>
+    );
   }
 
   return (
