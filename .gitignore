@@ -20,6 +20,10 @@
 # production
 /build
 
+# sanity studio build output (npm run studio:deploy)
+/dist
+/.sanity
+
 # misc
 .DS_Store
 *.pem

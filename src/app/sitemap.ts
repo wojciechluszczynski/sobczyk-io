@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://piotrsobczyk.pl";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sobczyk.io";
 
 // Single-page landing site — one URL in the sitemap. As soon as new routes
 // land (case studies, blog), append them here.

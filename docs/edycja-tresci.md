@@ -10,12 +10,12 @@ i po chwili widać to na stronie.
 
 | Co | Wartość |
 |---|---|
-| **Panel do edycji** | https://www.sanity.io/@o3LvGNzvG/studio/qfqyqy1an59570nqfunm044j/default |
+| **Panel do edycji** | https://sobczyk-io.sanity.studio |
 | **Logowanie** | Twoje konto Sanity (Google / GitHub / e-mail) |
 | **Nazwa projektu** | sobczyk.io |
 | **Project ID** | `f89wvekz` |
 | **Dataset** | `production` |
-| **Strona (produkcja)** | https://sobczykio.vercel.app |
+| **Strona (produkcja)** | https://sobczyk.io (tymczasowo: https://sobczykio.vercel.app) |
 | **Panel administracyjny projektu** | https://www.sanity.io/manage/project/f89wvekz |
 
 > **Zanim pierwszy raz wejdziesz:** musisz dostać **zaproszenie** do projektu.
@@ -101,3 +101,33 @@ nazwą firmy. Czyli: brak logo nie psuje wyglądu.
 
 Cokolwiek nie działa (logowanie, dostęp, zmiana której nie da się zrobić w
 panelu) — **Wojciech**. To sprawy na kilka minut.
+
+---
+
+## Dla Wojciecha (utrzymanie — nie dotyczy Piotrka)
+
+Panel edycji to **Sanity Studio hostowane przez Sanity**, a nie część aplikacji
+Next.js. Strona jest czystym frontendem, który tylko **czyta** treść przez API.
+
+Żeby panel w ogóle miał co edytować, schemat (pola, sekcje) musi być **wdrożony**
+do projektu — sam pusty projekt Sanity pokazuje pusty panel. Schemat żyje w
+`sanity.config.ts` + `src/sanity/schemaTypes/`.
+
+```bash
+# jednorazowe logowanie do Sanity
+npx sanity login
+
+# wdrożenie panelu na https://sobczyk-io.sanity.studio
+npm run studio:deploy
+
+# (alternatywnie) samo wdrożenie schematu bez budowania panelu
+npm run schema:deploy
+
+# lokalne uruchomienie panelu do testów
+npm run studio:dev
+```
+
+Po każdej zmianie pól schematu w kodzie trzeba ponownie uruchomić
+`npm run studio:deploy`, żeby panel zobaczył nowe pola. `projectId` (`f89wvekz`,
+publiczny) jest wpięty na stałe w `src/sanity/env.ts`, więc strona czyta z Sanity
+także bez ustawiania zmiennych środowiskowych na Vercelu.

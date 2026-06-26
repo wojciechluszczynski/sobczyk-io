@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "studio:dev": "sanity dev",
+    "studio:deploy": "sanity deploy",
+    "schema:deploy": "sanity schema deploy"
   },
   "dependencies": {
     "@sanity/image-url": "^2.1.1",
@@ -24,6 +27,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "sanity": "^6.0.0",
+    "styled-components": "^6.4.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
