@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://piotrsobczyk.pl";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sobczyk.io";
 
 // Single-page site with the editor hosted on Sanity's side — nothing to hide
 // from crawlers, so everything under the root is fair game.

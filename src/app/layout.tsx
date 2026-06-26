@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import SmoothScroll from "@/components/SmoothScroll";
 import { getLandingPage } from "@/sanity/landingPage";
 import { urlForImage } from "@/sanity/image";
+import { hasSanity } from "@/sanity/env";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -24,10 +25,10 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-// Bazowy adres strony. Domyślnie produkcyjna domena (zgodnie z briefem),
-// ale można nadpisać przez env var, np. tymczasowy adres .vercel.app,
-// zanim piotrsobczyk.pl zostanie podpięta do DNS.
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://piotrsobczyk.pl";
+// Bazowy adres strony. Domyślnie produkcyjna domena, ale można nadpisać przez
+// env var, np. tymczasowy adres .vercel.app, zanim sobczyk.io zostanie
+// podpięta do DNS.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sobczyk.io";
 
 const DEFAULT_TITLE = "Piotr Sobczyk, zewnętrzny Head of Digital";
 const DEFAULT_DESCRIPTION =
@@ -166,9 +167,9 @@ export default function RootLayout({
       className={`${fraunces.variable} ${dmSans.variable} ${geistMono.variable}`}
     >
       <head>
-        {/* Preconnect to Sanity CDN when configured — shaves ~150ms off first
+        {/* Preconnect to Sanity CDN when connected — shaves ~150ms off first
             image byte once the editor uploads a real portrait / company logo. */}
-        {process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ? (
+        {hasSanity ? (
           <>
             <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="" />
             <link rel="dns-prefetch" href="https://cdn.sanity.io" />
