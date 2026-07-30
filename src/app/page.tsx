@@ -2,6 +2,7 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import ContactForm from "@/components/ContactForm";
 import ScrollReveal from "@/components/ScrollReveal";
+import Illustration from "@/components/Illustration";
 import Icon from "@/components/Icon";
 import CompanyLogo from "@/components/CompanyLogo";
 import { getLandingPage } from "@/sanity/landingPage";
@@ -464,6 +465,11 @@ export default async function Home() {
                 {sanity?.audienceLead ?? "Pracuję z firmami, które wiedzą, że marketing jest ważny, ale nie mają nikogo, kto bierze odpowiedzialność za liczby."}
               </p>
             </div>
+            <Illustration
+              src="/illustrations/rozpoznajesz.png"
+              alt="Przedsiębiorca zagubiony w kanałach marketingowych — SEO, PPC, social — z budżetem znikającym w lejku"
+              className="max-w-2xl mx-auto mb-12"
+            />
             <div className="grid md:grid-cols-2 gap-6">
               {audience.map((item) => (
                 <div key={item.title} className="sticker sticker-hover p-6 md:p-8 rounded-2xl bg-white">
@@ -493,6 +499,11 @@ export default async function Home() {
                 {sanity?.scopeLead ?? "Ja odpowiadam za dane, kierunek i decyzje. Specjaliści odpowiadają za wykonanie."}
               </p>
             </div>
+            <Illustration
+              src="/illustrations/podzial-rol.png"
+              alt="Waga równoważąca zakres Piotra — strategia, dane i decyzje — z zakresem specjalistów odpowiedzialnych za wykonanie"
+              className="max-w-2xl mx-auto mb-12"
+            />
             <div className="grid md:grid-cols-2 gap-6">
               <div className="sticker p-7 md:p-8 rounded-2xl bg-white">
                 <div className="flex items-center gap-3 mb-6">
@@ -640,10 +651,17 @@ export default async function Home() {
             </div>
 
             {/* Anchor */}
-            <div className="max-w-2xl mx-auto mb-12 sticker rounded-2xl bg-yellow/20 p-5 sm:p-6 text-center">
-              <p className="text-sm sm:text-[15px] text-ink leading-relaxed">
-                <span className="font-semibold">{sanity?.pricingAnchorStrong ?? "Etatowy Head of Digital kosztuje 20–28 tys. zł miesięcznie"}</span> {sanity?.pricingAnchorRest ?? "plus rekrutacja i ZUS. Poniżej dostajesz to samo doświadczenie w modelu, który możesz wyłączyć."}
-              </p>
+            <div className="max-w-4xl mx-auto mb-12 grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+              <Illustration
+                src="/illustrations/cennik.png"
+                alt="Porównanie kosztu etatowego Head of Digital z elastycznym modelem współpracy z Piotrem"
+                sizes="(max-width: 1024px) 100vw, 480px"
+              />
+              <div className="sticker rounded-2xl bg-yellow/20 p-5 sm:p-6 text-center lg:text-left">
+                <p className="text-sm sm:text-[15px] text-ink leading-relaxed">
+                  <span className="font-semibold">{sanity?.pricingAnchorStrong ?? "Etatowy Head of Digital kosztuje 20–28 tys. zł miesięcznie"}</span> {sanity?.pricingAnchorRest ?? "plus rekrutacja i ZUS. Poniżej dostajesz to samo doświadczenie w modelu, który możesz wyłączyć."}
+                </p>
+              </div>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
