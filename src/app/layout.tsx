@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, DM_Sans, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import SmoothScroll from "@/components/SmoothScroll";
-import { getLandingPage } from "@/sanity/landingPage";
+import { getLandingPage, FALLBACK_CONTACT_EMAIL } from "@/sanity/landingPage";
 import { urlForImage } from "@/sanity/image";
 import { hasSanity } from "@/sanity/env";
 import "./globals.css";
@@ -69,14 +69,14 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const jsonLd = {
+const buildJsonLd = (contactEmail: string) => ({
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Person",
       name: "Piotr Sobczyk",
       url: SITE_URL,
-      email: "piotr@sobczyk.io",
+      email: contactEmail,
       jobTitle: "Head of Digital Marketing",
       sameAs: ["https://www.linkedin.com/in/piotrsobczyk/"],
       knowsAbout: [
@@ -154,13 +154,16 @@ const jsonLd = {
       ],
     },
   ],
-};
+});
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const sanity = await getLandingPage();
+  const jsonLd = buildJsonLd(sanity?.contactEmail ?? FALLBACK_CONTACT_EMAIL);
+
   return (
     <html
       lang="pl"

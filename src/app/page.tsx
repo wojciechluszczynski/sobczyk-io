@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Illustration from "@/components/Illustration";
 import Icon from "@/components/Icon";
 import CompanyLogo from "@/components/CompanyLogo";
-import { getLandingPage } from "@/sanity/landingPage";
+import { getLandingPage, FALLBACK_CONTACT_EMAIL } from "@/sanity/landingPage";
 import { urlForImage } from "@/sanity/image";
 import type { IconName } from "@/sanity/iconCatalog";
 
@@ -219,6 +219,9 @@ const defaultSkills = [
 
 export default async function Home() {
   const sanity = await getLandingPage();
+  // One source for the address: schema.org, the contact link, the footer
+  // and the form all read it, so changing it in Sanity needs no deploy.
+  const contactEmail = sanity?.contactEmail ?? FALLBACK_CONTACT_EMAIL;
 
   // Data overlay: arrays with icons keep icons from defaults and overlay text
   // by index from Sanity; pure-text arrays fall back wholesale.
@@ -760,7 +763,7 @@ export default async function Home() {
                 {sanity?.contactLead ?? "Odpowiadam w 48 godzin, od razu ze wskazaniem, gdzie zacząłbym szukać odpowiedzi w Twoich danych."}
               </p>
               <div className="space-y-5">
-                <a href={`mailto:${sanity?.contactEmail ?? "piotr@sobczyk.io"}`} className="flex items-center gap-4 group">
+                <a href={`mailto:${contactEmail}`} className="flex items-center gap-4 group">
                   <div className="w-11 h-11 rounded-xl bg-yellow border-2 border-ink flex items-center justify-center">
                     <svg className="w-5 h-5 text-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -768,7 +771,7 @@ export default async function Home() {
                   </div>
                   <div>
                     <p className="text-[10px] text-paper/40 uppercase tracking-wider">Email</p>
-                    <p className="text-paper/90 font-medium group-hover:text-yellow transition-colors">{sanity?.contactEmail ?? "piotr@sobczyk.io"}</p>
+                    <p className="text-paper/90 font-medium group-hover:text-yellow transition-colors">{contactEmail}</p>
                   </div>
                 </a>
                 <a href={sanity?.contactLinkedinUrl ?? "https://www.linkedin.com/in/piotrsobczyk/"} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
@@ -785,7 +788,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="bg-paper rounded-2xl p-6 md:p-8 border-2 border-ink shadow-[6px_6px_0_0_#ffe01b]">
-              <ContactForm />
+              <ContactForm email={contactEmail} />
             </div>
           </div>
         </div>
@@ -798,8 +801,8 @@ export default async function Home() {
             &copy; 2026 Piotr Sobczyk
           </p>
           <div className="flex items-center gap-6">
-            <a href="mailto:piotr@sobczyk.io" className="text-xs text-paper/30 hover:text-paper/60 transition-colors">
-              piotr@sobczyk.io
+            <a href={`mailto:${contactEmail}`} className="text-xs text-paper/30 hover:text-paper/60 transition-colors">
+              {contactEmail}
             </a>
             <a href="https://www.linkedin.com/in/piotrsobczyk/" target="_blank" rel="noopener noreferrer" className="text-xs text-paper/30 hover:text-paper/60 transition-colors">
               LinkedIn

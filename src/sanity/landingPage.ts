@@ -1,3 +1,9 @@
+/** Address used until Sanity carries one. Change the live address in
+ *  Sanity Studio (Landing page → Kontakt → Email), not here: every
+ *  place on the site reads that field, so it takes effect without a
+ *  deploy. */
+export const FALLBACK_CONTACT_EMAIL = "piotr@sobczyk.io";
+
 import { client } from "./client";
 import type { SanityImageSource } from "@sanity/image-url";
 import type { IconName } from "./iconCatalog";

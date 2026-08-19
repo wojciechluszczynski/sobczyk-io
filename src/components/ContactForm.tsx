@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 
-export default function ContactForm() {
+export default function ContactForm({ email: contactEmail }: { email: string }) {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -18,7 +18,7 @@ export default function ContactForm() {
       `${message}\n\n---\nOd: ${name}\nEmail: ${email}`,
     );
     window.open(
-      `mailto:piotr@sobczyk.io?subject=${subject}&body=${body}`,
+      `mailto:${contactEmail}?subject=${subject}&body=${body}`,
       "_self",
     );
     setSubmitted(true);
